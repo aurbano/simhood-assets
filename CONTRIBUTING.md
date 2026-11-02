@@ -17,7 +17,7 @@ Then **claim** the slot with the issue form (Issues, "Claim a slot"; the board's
 
 ## Original work or third-party work
 
-**Original work** is a model you made. License it `CC0-1.0` (preferred) or `CC-BY-4.0`. It must state whether generative AI was used (see below), yes or no.
+**Original work** is a model you made. Give it `CC0-1.0` (preferred) or `CC-BY-4.0`. It must state whether generative AI was used (see below), yes or no.
 
 **Third-party work** is someone else's model that you adapt or bring in. It is accepted only if its licence is `CC0-1.0`, `CC-BY-3.0` or `CC-BY-4.0`. Save the source's licence page under your pack's `licences/` folder (`.txt`, `.html`, `.md`, `.pdf` or `.png`) and point `licence_evidence` at it. Share-alike, non-commercial, no-derivatives, OGA-BY and unclear licences are refused. If the source does not say whether AI made the model, say `ai_generated = "unknown"`.
 
