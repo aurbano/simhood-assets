@@ -1,8 +1,11 @@
 id = "kenney:tree_thin"
 kind = "tree.broadleaf"
+slot = "nature.tree-broadleaf"
 # Model units 0.6804 x 1.4903 x 0.6165 (x, y, z, measured on the shipped glb); height = 10 m on its height (y) gives scale 6.7101, so 4.5658 x 10 x 4.1369 m.
 height = 10.0
 # Leaves only: the leaf material is linear (0.161, 0.788, 0.671), #70e6d6 in sRGB; the bark's orange is far off in hue.
 tint_key = "#70e6d6"
 tint_tolerance = 0.45
 source = "https://kenney.nl/assets/nature-kit"
+licence_evidence = "licences/kenney-nature-kit__License.txt"
+changes = ["scaled"]

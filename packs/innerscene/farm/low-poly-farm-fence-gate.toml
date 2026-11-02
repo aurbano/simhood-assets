@@ -1,5 +1,8 @@
 id = "innerscene:low-poly-farm-fence-gate"
 kind = "farm.gate"
+slot = "farm.gate-paddock"
 # Model units 2 x 1.2 x 0.1475 (x, y, z, measured on the shipped glb); height = 1.2 m on its height (y) gives scale 1, so 2 x 1.2 x 0.1475 m.
 height = 1.2
 source = "https://www.innerscene.com/tools/library/3d-parts/low-poly-farm-fence-gate-6ebb8330"
+title = "Low-poly Farm - Fence gate"
+licence_evidence = "licences/innerscene-cc0-gapfill__pages__low-poly-farm-fence-gate-6ebb8330.html"

@@ -1,6 +1,9 @@
 id = "kenney:door-wide-closed_loading"
 kind = "part.door.loading"
+slot = "building-parts.door-loading"
 # Model units 1.8 x 1.6 x 0 (x, y, z, measured on the shipped glb); height = 4 m on its height (y) gives scale 2.5, so 4.5 x 4 x 0 m.
 # same source model as the shutter, drawn 4.0 m high.
 height = 4.0
 source = "https://kenney.nl/assets/factory-kit"
+licence_evidence = "licences/kenney-factory-kit__License.txt"
+changes = ["scaled"]

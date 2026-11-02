@@ -1,5 +1,8 @@
 id = "kenney:hopper-high-round"
 kind = "industry.silo"
+slot = "industry.silo"
 # Model units 1.1182 x 1.5 x 1.1182 (x, y, z, measured on the shipped glb); height = 4.5 m on its height (y) gives scale 3, so 3.3546 x 4.5 x 3.3546 m.
 height = 4.5
 source = "https://kenney.nl/assets/factory-kit"
+licence_evidence = "licences/kenney-factory-kit__License.txt"
+changes = ["scaled"]

@@ -1,6 +1,9 @@
 id = "quaternius:female_walking"
 kind = "person.pedestrian"
+slot = "people.pedestrian-walking"
 # Model units 1.0588 x 3.7074 x 1.3528 (x, y, z, measured on the shipped glb); height = 1.75 m on its height (y) gives scale 0.472, so 0.4998 x 1.75 x 0.6386 m.
 height = 1.75
 weight = 3
 source = "https://quaternius.com/packs/backgroundposedhumans.html"
+licence_evidence = "licences/quaternius-backgroundposedhumans__licence-page-quaternius.html"
+changes = ["scaled"]

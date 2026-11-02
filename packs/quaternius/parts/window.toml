@@ -1,7 +1,10 @@
 id = "quaternius:window"
 kind = "part.window.casement"
+slot = "building-parts.window-casement"
 # Model units 0.3027 x 0.3471 x 0.0564 (x, y, z, measured on the shipped glb); height = 1.4 m on its height (y) gives scale 4.0333, so 1.221 x 1.4 x 0.2276 m.
 # closed four-pane insert, not a sash window.
 height = 1.4
 weight = 2
 source = "https://quaternius.com/packs/ultimatetexturedbuildings.html"
+licence_evidence = "licences/quaternius-ultimatetexturedbuildings__licence-page-quaternius.html"
+changes = ["scaled"]

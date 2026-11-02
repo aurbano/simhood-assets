@@ -1,7 +1,10 @@
 id = "quaternius:normalcar1"
 kind = "car"
+slot = "vehicles.car"
 # Model units 1.8074 x 1.1766 x 4.2207 (x, y, z, measured on the shipped glb); length = 4.3 m on its forward +z extent gives scale 1.0188, so 1.8413 x 1.1987 x 4.3 m.
 length = 4.3
 forward = "+z"
 ai_generated = "no"
 source = "https://quaternius.itch.io/lowpoly-cars"
+licence_evidence = "licences/quaternius-lowpoly-cars__licence-page-itch.html"
+changes = ["scaled"]

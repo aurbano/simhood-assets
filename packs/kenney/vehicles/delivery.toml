@@ -1,6 +1,9 @@
 id = "kenney:delivery"
 kind = "van"
+slot = "vehicles.box-van"
 # Model units 1.5 x 1.65 x 3.25 (x, y, z, measured on the shipped glb); length = 5.5 m on its forward +z extent gives scale 1.6923, so 2.5385 x 2.7923 x 5.5 m.
 length = 5.5
 forward = "+z"
 source = "https://kenney.nl/assets/car-kit"
+licence_evidence = "licences/kenney-car-kit__License.txt"
+changes = ["scaled"]

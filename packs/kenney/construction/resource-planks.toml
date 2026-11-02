@@ -1,5 +1,8 @@
 id = "kenney:resource-planks"
 kind = "site.timber"
+slot = "construction.timber-stack"
 # Model units 0.3729 x 0.0936 x 0.626 (x, y, z, measured on the shipped glb); height = 0.36 m on its height (y) gives scale 3.8462, so 1.4344 x 0.36 x 2.4075 m.
 height = 0.36
 source = "https://kenney.nl/assets/survival-kit"
+licence_evidence = "licences/kenney-survival-kit__License.txt"
+changes = ["scaled"]

@@ -1,6 +1,9 @@
 id = "quaternius:trafficlight"
 kind = "street.traffic_light"
+slot = "streets.traffic-light"
 # Model units 0.123 x 0.8709 x 0.0896 (x, y, z, measured on the shipped glb); height = 3.2 m on its height (y) gives scale 3.6744, so 0.4519 x 3.2 x 0.3293 m.
 height = 3.2
 ai_generated = "no"
 source = "https://quaternius.itch.io/lowpoly-modular-street"
+licence_evidence = "licences/quaternius-lowpoly-modular-street__licence-page-itch.html"
+changes = ["scaled"]

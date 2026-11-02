@@ -1,5 +1,8 @@
 id = "kenney:chimney-medium"
 kind = "industry.chimney"
+slot = "industry.chimney"
 # Model units 0.45 x 1.925 x 0.45 (x, y, z, measured on the shipped glb); height = 12 m on its height (y) gives scale 6.2338, so 2.8052 x 12 x 2.8052 m.
 height = 12.0
 source = "https://kenney.nl/assets/city-kit-industrial"
+licence_evidence = "licences/kenney-city-kit-industrial__License.txt"
+changes = ["scaled"]

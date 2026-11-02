@@ -1,5 +1,8 @@
 id = "kaykit:streetlight"
 kind = "street.lamp"
+slot = "streets.lamp-collector"
 # Model units 0.2693 x 0.9599 x 0.069 (x, y, z, measured on the shipped glb); height = 6 m on its height (y) gives scale 6.2506, so 1.6833 x 6 x 0.4314 m.
 height = 6.0
 source = "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0"
+licence_evidence = "licences/kaykit-city-builder-bits__LICENSE.txt"
+changes = ["scaled"]

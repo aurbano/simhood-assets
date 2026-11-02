@@ -1,7 +1,11 @@
 id = "polypizza:bike-rack"
 kind = "street.cycle_rack"
+slot = "streets.cycle-rack"
 # Model units 2.6185 x 1.3599 x 3.5938 (x, y, z, measured on the shipped glb); height = 0.9 m on its height (y) gives scale 0.6618, so 1.7329 x 0.9 x 2.3783 m.
 height = 0.9
 licence = "CC-BY-3.0"
 author = "J-Toastie"
 source = "https://poly.pizza/m/DzsJ2LPVKZ"
+title = "Bike Rack"
+licence_evidence = "licences/polypizza-gapfill__pages__DzsJ2LPVKZ.html"
+changes = ["scaled"]

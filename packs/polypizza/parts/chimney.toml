@@ -1,7 +1,11 @@
 id = "polypizza:chimney"
 kind = "part.roof.chimney"
+slot = "building-parts.roof-chimney"
 # Model units 0.6199 x 3.3813 x 1.2307 (x, y, z, measured on the shipped glb); height = 1.6 m on its height (y) gives scale 0.4732, so 0.2933 x 1.6 x 0.5824 m.
 height = 1.6
 licence = "CC-BY-3.0"
 author = "Pixel"
 source = "https://poly.pizza/m/D9V120TcfJ"
+title = "Chimney"
+licence_evidence = "licences/polypizza-gapfill__pages__D9V120TcfJ.html"
+changes = ["scaled"]

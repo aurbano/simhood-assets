@@ -1,6 +1,9 @@
 id = "quaternius:staircase"
 kind = "part.door.step"
+slot = "building-parts.door-step"
 # Model units 0.8455 x 0.1804 x 0.4807 (x, y, z, measured on the shipped glb); height = 0.3 m on its height (y) gives scale 1.663, so 1.4061 x 0.3 x 0.7994 m.
 # part.door.step is a proposed new kind (not in RUBRIC.md).
 height = 0.3
 source = "https://quaternius.com/packs/ultimatetexturedbuildings.html"
+licence_evidence = "licences/quaternius-ultimatetexturedbuildings__licence-page-quaternius.html"
+changes = ["scaled"]

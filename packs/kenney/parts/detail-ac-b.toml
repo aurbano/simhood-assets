@@ -1,5 +1,8 @@
 id = "kenney:detail-ac-b"
 kind = "part.wall.ac"
+slot = "building-parts.wall-ac"
 # Model units 0.31 x 0.225 x 0.125 (x, y, z, measured on the shipped glb); height = 0.6 m on its height (y) gives scale 2.6667, so 0.8267 x 0.6 x 0.3333 m.
 height = 0.6
 source = "https://kenney.nl/assets/modular-buildings"
+licence_evidence = "licences/kenney-modular-buildings__License.txt"
+changes = ["scaled"]

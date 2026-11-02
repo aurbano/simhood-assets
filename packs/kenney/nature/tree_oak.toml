@@ -1,5 +1,6 @@
 id = "kenney:tree_oak"
 kind = "tree.broadleaf"
+slot = "nature.tree-broadleaf"
 # Model units 0.6406 x 1.2262 x 0.7396 (x, y, z, measured on the shipped glb); height = 12 m on its height (y) gives scale 9.786, so 6.2685 x 12 x 7.2382 m.
 height = 12.0
 weight = 3
@@ -7,3 +8,5 @@ weight = 3
 tint_key = "#70e6d6"
 tint_tolerance = 0.45
 source = "https://kenney.nl/assets/nature-kit"
+licence_evidence = "licences/kenney-nature-kit__License.txt"
+changes = ["scaled"]

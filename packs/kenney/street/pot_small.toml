@@ -1,5 +1,8 @@
 id = "kenney:pot_small"
 kind = "street.planter"
+slot = "streets.pot"
 # Model units 0.3234 x 0.268 x 0.2801 (x, y, z, measured on the shipped glb); height = 0.45 m on its height (y) gives scale 1.6791, so 0.5431 x 0.45 x 0.4703 m.
 height = 0.45
 source = "https://kenney.nl/assets/nature-kit"
+licence_evidence = "licences/kenney-nature-kit__License.txt"
+changes = ["scaled"]

@@ -1,7 +1,11 @@
 id = "polypizza:antenna"
 kind = "part.roof.dish"
+slot = "building-parts.roof-dish"
 # Model units 0.6174 x 0.7306 x 0.6567 (x, y, z, measured on the shipped glb); height = 0.7 m on its height (y) gives scale 0.9581, so 0.5915 x 0.7 x 0.6292 m.
 height = 0.7
 licence = "CC0-1.0"
 author = "Quaternius"
 source = "https://poly.pizza/m/OuHQCigiUR"
+title = "Antenna"
+licence_evidence = "licences/polypizza-gapfill__pages__OuHQCigiUR.html"
+changes = ["scaled"]

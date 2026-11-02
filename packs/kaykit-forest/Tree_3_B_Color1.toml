@@ -1,7 +1,10 @@
 id = "kaykit:tree_3_b"
 kind = "tree.broadleaf"
+slot = "nature.tree-broadleaf"
 # 4.353 model units tall, so 7.84 m at this scale.
 scale = 1.8
 # Leaves only: the atlas's trunk browns are 1.08+ from the key in hue, the whole green swatch within 0.27 of it.
 tint_key = "#4e9c3b"
 tint_tolerance = 0.45
+licence_evidence = "licences/License.txt"
+changes = ["scaled"]

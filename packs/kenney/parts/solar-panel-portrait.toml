@@ -1,5 +1,8 @@
 id = "kenney:solar-panel-portrait"
 kind = "part.roof.solar"
+slot = "building-parts.solar-panel-raised"
 # Model units 0.4182 x 0.41 x 0.6486 (x, y, z, measured on the shipped glb); height = 1 m on its height (y) gives scale 2.4393, so 1.0201 x 1 x 1.582 m.
 height = 1.0
 source = "https://kenney.nl/assets/city-kit-industrial"
+licence_evidence = "licences/kenney-city-kit-industrial__License.txt"
+changes = ["scaled"]

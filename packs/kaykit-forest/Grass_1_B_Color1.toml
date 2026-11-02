@@ -1,7 +1,10 @@
 id = "kaykit:grass_1_b"
 kind = "cover.tufts"
+slot = "nature.grass-tufts"
 # 0.537 model units tall, so 0.38 m at this scale.
 scale = 0.7
 # Leaves only: the atlas's trunk browns are 1.08+ from the key in hue, the whole green swatch within 0.27 of it.
 tint_key = "#69ae3d"
 tint_tolerance = 0.35
+licence_evidence = "licences/License.txt"
+changes = ["scaled"]

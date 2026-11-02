@@ -1,7 +1,10 @@
 id = "quaternius:sheep"
 kind = "animal.sheep"
+slot = "farm.sheep"
 # Model units 3.3937 x 6.6603 x 9.0427 (x, y, z, measured on the shipped glb); height = 0.8 m on its height (y) gives scale 0.1201, so 0.4076 x 0.8 x 1.0862 m.
 # the staged export lay on its side (length along y); the shipped model is rotated -90 degrees about x so height is the standing height.
 height = 0.8
 ai_generated = "no"
 source = "https://quaternius.itch.io/lowpoly-animated-animals"
+licence_evidence = "licences/quaternius-lowpoly-animated-animals__licence-page-itch.html"
+changes = ["scaled"]

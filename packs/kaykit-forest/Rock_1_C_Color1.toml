@@ -1,8 +1,11 @@
 id = "kaykit:rock_1_c"
 kind = "cover.pebbles"
+slot = "nature.pebbles"
 # 0.540 model units tall, so 0.16 m at this scale.
 scale = 0.45
 weight = 2
 # The rock swatch is a grey gradient: every texel is within 0.02 of the key in hue, so the whole rock takes the client's rock colour, shaded.
 tint_key = "#7c868b"
 tint_tolerance = 0.2
+licence_evidence = "licences/License.txt"
+changes = ["scaled"]

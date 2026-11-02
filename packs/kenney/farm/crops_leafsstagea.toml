@@ -1,5 +1,7 @@
 id = "kenney:crops_leafsstagea"
 kind = "farm.crop_veg"
+slot = "farm.veg-plant"
 # Model units 0.3894 x 0.4271 x 0.3894 (x, y, z, measured on the shipped glb); height = 0.4271 m on its height (y) gives scale 1.0001, so 0.3894 x 0.4271 x 0.3894 m.
 height = 0.4271
 source = "https://kenney.nl/assets/nature-kit"
+licence_evidence = "licences/kenney-nature-kit__License.txt"

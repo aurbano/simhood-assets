@@ -1,5 +1,8 @@
 id = "kenney:detail-ac-a"
 kind = "part.roof.hvac"
+slot = "building-parts.roof-hvac"
 # Model units 0.24 x 0.1062 x 0.24 (x, y, z, measured on the shipped glb); height = 0.6 m on its height (y) gives scale 5.6471, so 1.3553 x 0.6 x 1.3553 m.
 height = 0.6
 source = "https://kenney.nl/assets/modular-buildings"
+licence_evidence = "licences/kenney-modular-buildings__License.txt"
+changes = ["scaled"]

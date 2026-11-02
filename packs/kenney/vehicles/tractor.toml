@@ -1,6 +1,9 @@
 id = "kenney:tractor"
 kind = "tractor"
+slot = "vehicles.tractor"
 # Model units 1.3421 x 1.6021 x 2.2016 (x, y, z, measured on the shipped glb); length = 4 m on its forward +z extent gives scale 1.8169, so 2.4384 x 2.9108 x 4 m.
 length = 4.0
 forward = "+z"
 source = "https://kenney.nl/assets/car-kit"
+licence_evidence = "licences/kenney-car-kit__License.txt"
+changes = ["scaled"]

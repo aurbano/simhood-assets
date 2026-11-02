@@ -1,7 +1,11 @@
 id = "polypizza:wood-water-trough"
 kind = "farm.trough"
+slot = "farm.trough-wood"
 # Model units 2.2239 x 2.2865 x 4.1384 (x, y, z, measured on the shipped glb); height = 1.1 m on its height (y) gives scale 0.4811, so 1.0699 x 1.1 x 1.9909 m.
 height = 1.1
 licence = "CC-BY-3.0"
 author = "Oliver Herklotz"
 source = "https://poly.pizza/m/eWOPxWJkqL3"
+title = "Wood Water Trough"
+licence_evidence = "licences/polypizza-gapfill__pages__eWOPxWJkqL3.html"
+changes = ["scaled"]

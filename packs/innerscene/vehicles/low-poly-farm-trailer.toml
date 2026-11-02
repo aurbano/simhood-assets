@@ -1,7 +1,11 @@
 id = "innerscene:low-poly-farm-trailer"
 kind = "tractor.trailer"
+slot = "vehicles.farm-trailer"
 # Model units 3.8175 x 1.29 x 2.06 (x, y, z, measured on the shipped glb); length = 3.8 m on its forward -x extent gives scale 0.9954, so 3.8 x 1.2841 x 2.0506 m.
 # source only under raw/ (not extracted/); forward -x toward the hitch.
 length = 3.8
 forward = "-x"
 source = "https://www.innerscene.com/tools/library/3d-parts/low-poly-farm-trailer-878cd5b9"
+title = "Low-poly Farm - Trailer"
+licence_evidence = "licences/innerscene-cc0-gapfill__pages__low-poly-farm-trailer-878cd5b9.html"
+changes = ["scaled"]

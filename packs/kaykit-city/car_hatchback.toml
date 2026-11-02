@@ -1,7 +1,10 @@
 id = "kaykit:car_hatchback"
 kind = "car"
+slot = "vehicles.car"
 # 0.806 model units long along +z (the sedan class is 0.938 and is 4.2 m, like the kit car).
 length = 3.61
 # The front wheel nodes sit at +z (z = +0.245 against -0.256 for the rear wheels).
 forward = "+z"
 weight = 4
+licence_evidence = "licences/License.txt"
+changes = ["scaled"]

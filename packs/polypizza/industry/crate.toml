@@ -1,7 +1,11 @@
 id = "polypizza:crate"
 kind = "yard.crate"
+slot = "industry.crate"
 # Model units 0.1602 x 0.1602 x 0.1602 (x, y, z, measured on the shipped glb); height = 0.6 m on its height (y) gives scale 3.7446, so 0.6 x 0.6 x 0.6 m.
 height = 0.6
 licence = "CC0-1.0"
 author = "Quaternius"
 source = "https://poly.pizza/m/3OEFd1AWfa"
+title = "Crate"
+licence_evidence = "licences/polypizza-gapfill__pages__3OEFd1AWfa.html"
+changes = ["scaled"]

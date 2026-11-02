@@ -1,4 +1,7 @@
 id = "anker:pallet"
 kind = "yard.pallet"
+slot = "industry.pallet"
 # Model units 2.3927 x 0.3161 x 2.3245 (x, y, z, measured on the shipped glb); height = 0.15 m on its height (y) gives scale 0.4745, so 1.1353 x 0.15 x 1.1029 m.
 height = 0.15
+licence_evidence = "licences/itch-anker-low-poly-construction__licence-page-itch.html"
+changes = ["scaled"]

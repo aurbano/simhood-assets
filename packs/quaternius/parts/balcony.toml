@@ -1,6 +1,9 @@
 id = "quaternius:balcony"
 kind = "part.wall.balcony"
+slot = "building-parts.wall-balcony"
 # Model units 0.8344 x 0.2702 x 0.4747 (x, y, z, measured on the shipped glb); height = 1.2 m on its height (y) gives scale 4.4404, so 3.705 x 1.2 x 2.1081 m.
 # height includes the platform; timber-balcony buildings only.
 height = 1.2
 source = "https://quaternius.com/packs/ultimatetexturedbuildings.html"
+licence_evidence = "licences/quaternius-ultimatetexturedbuildings__licence-page-quaternius.html"
+changes = ["scaled"]

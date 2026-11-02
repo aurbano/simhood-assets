@@ -1,8 +1,12 @@
 id = "polypizza:dump-truck"
 kind = "truck.tipper"
+slot = "vehicles.tipper"
 # Model units 2.68 x 3.2395 x 9.776 (x, y, z, measured on the shipped glb); length = 8 m on its forward +z extent gives scale 0.8183, so 2.1931 x 2.651 x 8 m.
 length = 8.0
 forward = "+z"
 licence = "CC-BY-3.0"
 author = "Crachboss32"
 source = "https://poly.pizza/m/gYWUCpb09B"
+title = "Dump Truck"
+licence_evidence = "licences/polypizza-gapfill__pages__gYWUCpb09B.html"
+changes = ["scaled"]

@@ -1,5 +1,7 @@
 id = "quaternius:wheat_4"
 kind = "farm.crop_wheat"
+slot = "farm.wheat-stalk"
 # Model units 0.0978 x 0.948 x 0.0559 (x, y, z, measured on the shipped glb); height = 0.948 m on its height (y) gives scale 1, so 0.0978 x 0.948 x 0.0559 m.
 height = 0.948
 source = "https://quaternius.com/packs/ultimatecrops.html"
+licence_evidence = "licences/quaternius-ultimatecrops__licence-page-quaternius.html"

@@ -1,5 +1,8 @@
 id = "kenney:shipping-container-a"
 kind = "yard.container"
+slot = "industry.container"
 # Model units 0.3726 x 0.3481 x 0.8226 (x, y, z, measured on the shipped glb); height = 2.59 m on its height (y) gives scale 7.4408, so 2.7725 x 2.59 x 6.1208 m.
 height = 2.59
 source = "https://kenney.nl/assets/city-kit-industrial"
+licence_evidence = "licences/kenney-city-kit-industrial__License.txt"
+changes = ["scaled"]

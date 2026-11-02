@@ -1,4 +1,7 @@
 id = "anker:skip"
 kind = "yard.skip"
+slot = "industry.skip"
 # Model units 5.7908 x 2.5084 x 2.8998 (x, y, z, measured on the shipped glb); height = 1.4 m on its height (y) gives scale 0.5581, so 3.232 x 1.4 x 1.6184 m.
 height = 1.4
+licence_evidence = "licences/itch-anker-low-poly-construction__licence-page-itch.html"
+changes = ["scaled"]

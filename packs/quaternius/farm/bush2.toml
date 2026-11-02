@@ -1,5 +1,8 @@
 id = "quaternius:bush2"
 kind = "farm.hedge"
+slot = "farm.hedge-section"
 # Model units 0.9968 x 0.9567 x 0.7714 (x, y, z, measured on the shipped glb); height = 1.2 m on its height (y) gives scale 1.2543, so 1.2503 x 1.2 x 0.9675 m.
 height = 1.2
 source = "https://quaternius.com/packs/simplenature.html"
+licence_evidence = "licences/quaternius-simplenature__licence-page-quaternius.html"
+changes = ["scaled"]

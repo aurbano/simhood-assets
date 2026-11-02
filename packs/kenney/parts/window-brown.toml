@@ -1,5 +1,8 @@
 id = "kenney:window-brown"
 kind = "part.window.casement"
+slot = "building-parts.window-casement"
 # Model units 0.3125 x 0.38 x 0.05 (x, y, z, measured on the shipped glb); height = 1.4 m on its height (y) gives scale 3.6842, so 1.1513 x 1.4 x 0.1842 m.
 height = 1.4
 source = "https://kenney.nl/assets/modular-buildings"
+licence_evidence = "licences/kenney-modular-buildings__License.txt"
+changes = ["scaled"]

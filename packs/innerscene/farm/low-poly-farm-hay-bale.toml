@@ -1,5 +1,8 @@
 id = "innerscene:low-poly-farm-hay-bale"
 kind = "farm.bale_square"
+slot = "farm.bale-square"
 # Model units 1 x 0.715 x 0.615 (x, y, z, measured on the shipped glb); height = 0.715 m on its height (y) gives scale 1, so 1 x 0.715 x 0.615 m.
 height = 0.715
 source = "https://www.innerscene.com/tools/library/3d-parts/low-poly-farm-hay-bale-3cfcf2a9"
+title = "Low-poly Farm - Hay bale"
+licence_evidence = "licences/innerscene-cc0-gapfill__pages__low-poly-farm-hay-bale-3cfcf2a9.html"

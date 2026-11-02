@@ -1,6 +1,9 @@
 id = "kenney:solar-panel-flat"
 kind = "part.roof.solar"
+slot = "building-parts.solar-panel-flat"
 # Model units 0.4182 x 0.0615 x 0.7134 (x, y, z, measured on the shipped glb); height = 0.15 m on its height (y) gives scale 2.439, so 1.02 x 0.15 x 1.74 m.
 height = 0.15
 weight = 2
 source = "https://kenney.nl/assets/city-kit-industrial"
+licence_evidence = "licences/kenney-city-kit-industrial__License.txt"
+changes = ["scaled"]
