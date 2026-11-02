@@ -116,4 +116,36 @@ describe("renderer", () => {
     const result = await renderer.render(specFor(model("kenney:delivery"), "repo"), none);
     assert.equal(result.triangles, 2476);
   });
+  describe("a flat part", () => {
+    const quad: ReportModel = {
+      id: "test:quad",
+      pack: "test",
+      model_path: "tools/render/tests/fixtures/quad-facing-minus-x.gltf",
+      measure: "height",
+      measure_value: 1,
+      forward: "+x",
+      factor: null,
+      flat_shading: false,
+      tint_key: null,
+      tint_tolerance: null,
+      triangles: 2,
+    };
+    const analyse = { image: true, tinted: false, analyse: true };
+
+    // The quad's faces point to -X; forward -x turns them to +X, +z to +Z (both seen from the camera's side) and -z to -Z.
+    for (const [forward, mirror] of [["+x", "x"], ["-x", null], ["+z", null], ["-z", "z"]] as const) {
+      it(`shows a quad facing away from the review camera (forward ${forward})`, async () => {
+        const r = await renderer.render(specFor({ ...quad, forward }, "repo"), analyse);
+        assert.equal(r.mirror, mirror);
+        assert.ok((r.modelPixels ?? 0) > 0, `${r.modelPixels} model pixels`);
+      });
+    }
+  });
+
+  it("encodes WebP when asked", async () => {
+    const r = await renderer.render(specFor(model("kenney:delivery"), "repo"), { image: true, tinted: false, analyse: false, format: "webp", quality: 90 });
+    assert.ok(r.image);
+    assert.equal(r.image.subarray(0, 4).toString("latin1"), "RIFF");
+    assert.equal(r.image.subarray(8, 12).toString("latin1"), "WEBP");
+  });
 });

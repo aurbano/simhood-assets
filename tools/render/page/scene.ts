@@ -27,6 +27,10 @@ export interface Options {
   tinted: boolean;
   /** Run the tint-mask and colour passes. */
   analyse: boolean;
+  /** Picture encoding, `png` by default. */
+  format?: "png" | "webp";
+  /** WebP quality, 0 to 100, 90 by default. */
+  quality?: number;
 }
 
 export interface Colour {
@@ -48,6 +52,10 @@ export interface Result {
   tintCoverage: number | null;
   tintCoverageReview: number | null;
   colours: Colour[] | null;
+  /** Model pixels in the colour pass (the review view), when it ran. */
+  modelPixels: number | null;
+  /** The axis the review view was mirrored across, for a flat model facing away from it. */
+  mirror: "x" | "z" | null;
 }
 
 const SIZE = 512;
@@ -99,7 +107,55 @@ interface Loaded {
   rawExtent: THREE.Vector3;
   factor: number;
   box: THREE.Box3;
+  /** The horizontal axis the review view is mirrored across, for a flat model facing away from it. */
+  mirror: Mirror;
   dispose(): void;
+}
+
+type Mirror = "x" | "z" | null;
+
+interface Encoding {
+  format: "png" | "webp";
+  quality: number;
+}
+
+/** A model thinner than this (metres, scaled) along a horizontal axis is a flat part. */
+const FLAT_EXTENT = 0.02;
+
+/** The review yaw, mirrored to the other side of a flat model that faces away from the camera. */
+function reviewYaw(mirror: Mirror): number {
+  if (mirror === "x") return -REVIEW_YAW;
+  if (mirror === "z") return 180 - REVIEW_YAW;
+  return REVIEW_YAW;
+}
+
+function mirrored(v: THREE.Vector3, mirror: Mirror): THREE.Vector3 {
+  const out = v.clone();
+  if (mirror === "x") out.x = -out.x;
+  if (mirror === "z") out.z = -out.z;
+  return out;
+}
+
+/** The sum of the triangles' normals weighted by area, in the geometry's space. */
+function faceNormalSum(geometry: THREE.BufferGeometry): THREE.Vector3 {
+  const position = geometry.getAttribute("position");
+  const index = geometry.index;
+  const count = index ? index.count : position.count;
+  const [a, b, c, sum] = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+  for (let i = 0; i + 2 < count; i += 3) {
+    a.fromBufferAttribute(position, index ? index.getX(i) : i);
+    b.fromBufferAttribute(position, index ? index.getX(i + 1) : i + 1);
+    c.fromBufferAttribute(position, index ? index.getX(i + 2) : i + 2);
+    sum.add(b.sub(a).cross(c.sub(a)));
+  }
+  return sum;
+}
+
+/** The mirror for a model thinner than `FLAT_EXTENT` on x or z (the thinner) whose faces point to the negative side. */
+function mirrorAxis(extent: THREE.Vector3, normals: THREE.Vector3): Mirror {
+  const axis = extent.x <= extent.z ? "x" : "z";
+  if (extent[axis] >= FLAT_EXTENT) return null;
+  return normals[axis] < 0 ? axis : null;
 }
 
 function turnAngle(forward: string): number {
@@ -237,6 +293,7 @@ async function load(spec: Spec): Promise<Loaded> {
   const turn = new THREE.Matrix4().makeRotationY(turnAngle(spec.forward));
   const sources: { geometry: THREE.BufferGeometry; material: THREE.Material | THREE.Material[] }[] = [];
   let triangles = 0;
+  const normals = new THREE.Vector3();
   root.traverse((object) => {
     const mesh = object as THREE.Mesh;
     if (!mesh.isMesh || !mesh.geometry.getAttribute("position")) return;
@@ -247,6 +304,7 @@ async function load(spec: Spec): Promise<Loaded> {
     geometry.applyMatrix4(world);
     if (world.determinant() < 0) flipWinding(geometry);
     sources.push({ geometry, material: mesh.material });
+    normals.add(faceNormalSum(geometry));
   });
 
   const low = new THREE.Vector3(Infinity, Infinity, Infinity);
@@ -270,6 +328,7 @@ async function load(spec: Spec): Promise<Loaded> {
     if (measured <= 1e-9) throw new Error("the model has no extent along the manifest's measure");
     factor = spec.measureValue / measured;
   }
+  const mirror = mirrorAxis(rawExtent.clone().multiplyScalar(factor), normals);
 
   // The anchor is the centre of x and z at the lowest y, so the model stands on the ground.
   const anchor = new THREE.Vector3((low.x + high.x) * 0.5, low.y, (low.z + high.z) * 0.5);
@@ -335,7 +394,7 @@ async function load(spec: Spec): Promise<Loaded> {
       }
     });
   };
-  return { group, meshes, entries, triangles, rawExtent, factor, box, dispose };
+  return { group, meshes, entries, triangles, rawExtent, factor, box, mirror, dispose };
 }
 
 type Pass = "lit" | "id" | "colour";
@@ -442,13 +501,13 @@ export function init() {
   const colourTarget = new THREE.WebGLRenderTarget(SIZE, SIZE, { samples: 0 });
   const pixels = new Uint8Array(SIZE * SIZE * 4);
 
-  function drawPicture(loaded: Loaded, centre: THREE.Vector3, radius: number): string {
-    const { camera, distance } = viewCamera(centre, radius, REVIEW_YAW, REVIEW_ELEVATION);
+  function drawPicture(loaded: Loaded, centre: THREE.Vector3, radius: number, encoding: Encoding): string {
+    const { camera, distance } = viewCamera(centre, radius, reviewYaw(loaded.mirror), REVIEW_ELEVATION);
     ground.visible = true;
     ground.scale.setScalar(distance * 3);
     ground.position.set(centre.x, -0.002, centre.z);
     scene.background = background;
-    sun.position.copy(centre).addScaledVector(sunDirection, -radius * 4);
+    sun.position.copy(centre).addScaledVector(mirrored(sunDirection, loaded.mirror), -radius * 4);
     sun.target.position.copy(centre);
     sun.target.updateMatrixWorld(true);
     const s = radius * 1.7;
@@ -460,7 +519,7 @@ export function init() {
     renderer.setRenderTarget(null);
     renderer.setClearColor(background, 1);
     renderer.render(scene, camera);
-    return canvas.toDataURL("image/png").split(",")[1];
+    return canvas.toDataURL(`image/${encoding.format}`, encoding.quality / 100).split(",")[1];
   }
 
   function drawTarget(loaded: Loaded, pass: Pass, camera: THREE.Camera): Uint8Array {
@@ -487,8 +546,8 @@ export function init() {
     return { mask, model };
   }
 
-  function colours(loaded: Loaded, centre: THREE.Vector3, radius: number): Colour[] {
-    const { camera } = viewCamera(centre, radius, REVIEW_YAW, REVIEW_ELEVATION);
+  function colours(loaded: Loaded, centre: THREE.Vector3, radius: number): { colours: Colour[]; modelPixels: number } {
+    const { camera } = viewCamera(centre, radius, reviewYaw(loaded.mirror), REVIEW_ELEVATION);
     const ids = new Uint8Array(drawTarget(loaded, "id", camera));
     const colour = drawTarget(loaded, "colour", camera);
     const plain = new Map<number, number>();
@@ -527,10 +586,11 @@ export function init() {
       const hex = [bin.r, bin.g, bin.b].map((v) => Math.round(v / bin.count).toString(16).padStart(2, "0")).join("");
       add(`#${hex}`, bin.count, "texture");
     }
-    return [...out.values()]
+    const list = [...out.values()]
       .sort((a, b) => b.share - a.share || (a.hex < b.hex ? -1 : 1))
       .slice(0, 8)
       .map((c) => ({ ...c, share: Math.round(c.share * 10000) / 10000 }));
+    return { colours: list, modelPixels: total };
   }
 
   function coverage(loaded: Loaded, centre: THREE.Vector3, radius: number): { all: number; review: number } {
@@ -543,7 +603,7 @@ export function init() {
       mask += counts.mask;
       model += counts.model;
     }
-    const { camera } = viewCamera(centre, radius, REVIEW_YAW, REVIEW_ELEVATION);
+    const { camera } = viewCamera(centre, radius, reviewYaw(loaded.mirror), REVIEW_ELEVATION);
     const review = maskCounts(drawTarget(loaded, "lit", camera));
     setTint(loaded, 0);
     const ratio = (m: number, n: number) => (n === 0 ? 0 : Math.round((m / n) * 10000) / 10000);
@@ -562,17 +622,20 @@ export function init() {
         factor: loaded.factor,
         min: [loaded.box.min.x, loaded.box.min.y, loaded.box.min.z],
         max: [loaded.box.max.x, loaded.box.max.y, loaded.box.max.z],
+        mirror: loaded.mirror,
         image: null,
         tinted: null,
         tintCoverage: null,
         tintCoverageReview: null,
         colours: null,
+        modelPixels: null,
       };
       const hasKey = spec.tintKey !== null;
-      if (options.image) result.image = drawPicture(loaded, centre, radius);
+      const encoding = { format: options.format ?? "png", quality: options.quality ?? 90 };
+      if (options.image) result.image = drawPicture(loaded, centre, radius, encoding);
       if (options.tinted && hasKey) {
         setTint(loaded, 1, srgb(TEST_TINT));
-        result.tinted = drawPicture(loaded, centre, radius);
+        result.tinted = drawPicture(loaded, centre, radius, encoding);
         setTint(loaded, 0);
       }
       if (options.analyse) {
@@ -581,7 +644,9 @@ export function init() {
           result.tintCoverage = c.all;
           result.tintCoverageReview = c.review;
         }
-        result.colours = colours(loaded, centre, radius);
+        const seen = colours(loaded, centre, radius);
+        result.colours = seen.colours;
+        result.modelPixels = seen.modelPixels;
       }
       return result;
     } finally {

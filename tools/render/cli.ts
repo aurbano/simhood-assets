@@ -1,5 +1,5 @@
 // pnpm --dir tools render -- --repo <root> --report <report.json> --out <dir> [--only <id,id>]
-//   [--base-repo <root> --base-report <report.json>] [--examples]
+//   [--base-repo <root> --base-report <report.json>] [--examples] [--format png|webp] [--quality <0-100>]
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { parseArgs } from "node:util";
@@ -18,7 +18,8 @@ interface IndexEntry {
 }
 
 const USAGE = `usage: render --repo <root> --report <report.json> --out <dir> [--only <id,id>]
-              [--base-repo <root> --base-report <report.json>] [--examples]`;
+              [--base-repo <root> --base-report <report.json>] [--examples]
+              [--format png|webp] [--quality <0-100>]`;
 
 /** `kenney:delivery` becomes `kenney__delivery`. */
 export function fileStem(id: string): string {
@@ -61,6 +62,8 @@ async function main(): Promise<number> {
       repo: { type: "string" },
       report: { type: "string" },
       out: { type: "string" },
+      format: { type: "string", default: "png" },
+      quality: { type: "string", default: "90" },
       only: { type: "string" },
       "base-repo": { type: "string" },
       "base-report": { type: "string" },
@@ -74,10 +77,14 @@ async function main(): Promise<number> {
     return 0;
   }
   const { repo, report: reportFile, out } = values;
-  if (!repo || !reportFile || !out || (values["base-repo"] === undefined) !== (values["base-report"] === undefined)) {
+  const quality = Number(values.quality);
+  const okFormat = values.format === "png" || values.format === "webp";
+  const okQuality = Number.isInteger(quality) && quality >= 0 && quality <= 100;
+  if (!repo || !reportFile || !out || !okFormat || !okQuality || (values["base-repo"] === undefined) !== (values["base-report"] === undefined)) {
     console.error(USAGE);
     return 2;
   }
+  const format = values.format as "png" | "webp";
   const report = await readReport(reportFile);
   const only = values.only ? new Set(values.only.split(",").map((s) => s.trim()).filter(Boolean)) : null;
   const wanted = (m: ReportModel) => only === null || only.has(m.id);
@@ -109,15 +116,17 @@ async function main(): Promise<number> {
           image: true,
           tinted: full,
           analyse: full,
+          format,
+          quality,
         });
-        await mkdir(path.dirname(path.join(out, rel(".png"))), { recursive: true });
-        await writeFile(path.join(out, rel(".png")), result.image as Buffer);
-        entry.image = rel(".png");
+        await mkdir(path.dirname(path.join(out, rel(`.${format}`))), { recursive: true });
+        await writeFile(path.join(out, rel(`.${format}`)), result.image as Buffer);
+        entry.image = rel(`.${format}`);
         entry.triangles = result.triangles;
         entry.colours = result.colours;
         if (result.tinted) {
-          await writeFile(path.join(out, rel(".tinted.png")), result.tinted);
-          entry.tinted = rel(".tinted.png");
+          await writeFile(path.join(out, rel(`.tinted.${format}`)), result.tinted);
+          entry.tinted = rel(`.tinted.${format}`);
           entry.tint_coverage = result.tintCoverage;
           entry.tint_coverage_review = result.tintCoverageReview;
         }
@@ -130,9 +139,9 @@ async function main(): Promise<number> {
       const base = baseModels?.get(model.id);
       if (full && baseRepo && base && (await changed(model, repo, base, baseRepo))) {
         try {
-          const before = await renderer.render(specFor(base, "base"), { image: true, tinted: false, analyse: false });
-          await writeFile(path.join(out, rel(".before.png")), before.image as Buffer);
-          entry.before = rel(".before.png");
+          const before = await renderer.render(specFor(base, "base"), { image: true, tinted: false, analyse: false, format, quality });
+          await writeFile(path.join(out, rel(`.before.${format}`)), before.image as Buffer);
+          entry.before = rel(`.before.${format}`);
         } catch (error) {
           entry.error = `before picture: ${error instanceof Error ? error.message : String(error)}`;
           failures++;
