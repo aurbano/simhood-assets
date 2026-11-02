@@ -1,0 +1,10 @@
+id = "quaternius-trial:ambulance"
+slot = "vehicles.panel-van"
+kind = "van"
+title = "Ambulance"
+length = 5.5
+forward = "+z"
+licence_evidence = "licences/quaternius-publictransport__licence-page-quaternius.html"
+source = "https://quaternius.com/packs/ultimatelowpolypublictransport.html"
+changes = ["scaled to 5.5 m long"]
+contributors = ["aurbano"]

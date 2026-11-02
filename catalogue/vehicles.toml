@@ -31,7 +31,7 @@ name = "Panel van"
 size = { length = 5.5, width = 2.0, height = 2.5 }
 style = "Plain-bodied panel van the size of a Ford Transit, no livery, sliding side door; body tintable."
 priority = "high"
-status = "missing"
+status = "stand-in"
 tint = "body paint"
 plan = "commission"
 notes = "Research: commission in the KayKit vehicle language; do not squeeze or enlarge Kenney's toy van. Size: Ford Transit long-wheelbase reference."
