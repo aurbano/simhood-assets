@@ -1,0 +1,10 @@
+id = "example:rusty-ac-unit"
+kind = "part.wall.ac"
+height = 0.8
+title = "Outdoor AC unit (City Environment Pack 1)"
+author = "3dmodelscc0"
+source = "https://3dmodelscc0.itch.io/city-environment-pack"
+licence = "CC0-1.0"
+licence_evidence = "licences/3dmodelscc0-city-environment-pack__licence-page.html"
+ai_generated = "no"
+changes = ["converted from FBX to glb"]

@@ -1,10 +1,10 @@
-id = "example:brick-column"
+id = "example:brick-corner"
 kind = "site.bricks"
 height = 3.0
-title = "Brick column (small)"
+title = "Brick corner (plain)"
 author = "Quaternius"
 source = "https://quaternius.itch.io/downtown-city-megakit"
 licence = "CC0-1.0"
 licence_evidence = "licences/quaternius-downtown-city-megakit__licence-page.html"
 ai_generated = "no"
-changes = ["converted to one .glb", "normal and ORM maps dropped to fit 4 MiB", "scaled"]
+changes = ["packed the glTF into one glb", "normal and ORM textures scaled from 2048 to 512 px to fit the size limit"]

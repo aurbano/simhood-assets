@@ -21,9 +21,9 @@ model = "anker:scaffolding_a"
 why = "Clean geometry, broad bevels and flat colour, with no grime or wear, yet clearly a scaffold."
 
 [[rejected]]
-id = "example:brick-column"
-name = "Photographic brick column"
-why = "Realistic PBR brick with a 2048 px texture and surface wear; the family uses flat colours and simple geometry."
+id = "example:brick-corner"
+name = "Photographic brick corner"
+why = "Realistic PBR brick with worn courses and a 2048 px texture set; the family uses flat colours and simple geometry."
 
 [[rejected]]
 id = "example:mini-character"
@@ -41,6 +41,6 @@ name = "Toy-proportioned sedan"
 why = "Oversized wheels, a tall body and a short cabin make it read as a toy next to real-sized cars."
 
 [[rejected]]
-id = "example:grimy-barrel"
-name = "Rusted, weathered barrel"
-why = "Painted-on rust patches and a battered look; the family stays clean and un-weathered."
+id = "example:rusty-ac-unit"
+name = "Rusty, stained AC unit"
+why = "Rust streaks, grime and corroded brackets painted into a photographic texture; the family stays clean and un-weathered."
