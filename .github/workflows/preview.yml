@@ -22,9 +22,11 @@ jobs:
     if: ${{ github.event.workflow_run.event == 'pull_request' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Serialises the rebuilds of the previews branch (with cancel-in-progress off, a run waits).
+    # One group per pull request, so a pending run for one never replaces another's; the branch
+    # rebuild itself is race-safe (force-with-lease and retry). Fork runs carry no PR number, so
+    # they use the head repository owner and branch, which name one pull request in practice.
     concurrency:
-      group: previews
+      group: previews-pr-${{ github.event.workflow_run.pull_requests[0].number || format('{0}-{1}', github.event.workflow_run.head_repository.owner.login, github.event.workflow_run.head_branch) }}
       cancel-in-progress: false
     outputs:
       pr: ${{ steps.publish.outputs.pr }}

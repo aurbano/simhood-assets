@@ -1,5 +1,5 @@
 # Drops a closed pull request's pictures from the previews branch. Checks nothing out from the
-# pull request; the default branch's publisher does the work, in the same group as preview.yml.
+# pull request; the default branch's publisher does the work, in the same per-PR group as preview.yml.
 name: cleanup
 
 on:
@@ -11,7 +11,7 @@ permissions:
   pull-requests: read
 
 concurrency:
-  group: previews
+  group: previews-pr-${{ github.event.pull_request.number }}
   cancel-in-progress: false
 
 jobs:
