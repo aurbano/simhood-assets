@@ -26,7 +26,8 @@ export function threeVersion(): string {
 /** Which tree a model's files are read from. */
 export type Tree = "repo" | "base";
 
-export function specFor(model: ReportModel, tree: Tree): Spec {
+/** `sourceMaterials` draws the model with its own materials, for the rejected examples. */
+export function specFor(model: ReportModel, tree: Tree, sourceMaterials = false): Spec {
   const url = `/${tree}/${model.model_path.split("/").map(encodeURIComponent).join("/")}`;
   return {
     url,
@@ -37,6 +38,7 @@ export function specFor(model: ReportModel, tree: Tree): Spec {
     flatShading: model.flat_shading ?? false,
     tintKey: model.tint_key,
     tintTolerance: model.tint_tolerance ?? 0.25,
+    sourceMaterials,
   };
 }
 

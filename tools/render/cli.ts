@@ -112,7 +112,7 @@ async function main(): Promise<number> {
       target[model.id] = entry;
       const rel = (suffix: string) => (dir === "" ? `${stem}${suffix}` : `${dir}/${stem}${suffix}`);
       try {
-        const result: Rendered = await renderer.render(specFor(model, tree), {
+        const result: Rendered = await renderer.render(specFor(model, tree, !full), {
           image: true,
           tinted: full,
           analyse: full,

@@ -18,6 +18,8 @@ export interface Spec {
   flatShading: boolean;
   tintKey: string | null;
   tintTolerance: number;
+  /** Draw with the model's own materials as loaded (maps, alpha modes, sidedness), not the game's matte one. */
+  sourceMaterials?: boolean;
 }
 
 export interface Options {
@@ -56,6 +58,15 @@ export interface Result {
   modelPixels: number | null;
   /** The axis the review view was mirrored across, for a flat model facing away from it. */
   mirror: "x" | "z" | null;
+  /** The material the lit pictures use for each source material, in first-seen order. */
+  materials: {
+    alphaTest: number;
+    transparent: boolean;
+    doubleSided: boolean;
+    map: boolean;
+    normalMap: boolean;
+    metalnessMap: boolean;
+  }[];
 }
 
 const SIZE = 512;
@@ -90,7 +101,7 @@ if (uTintMode > 0) {
 `;
 
 interface Entry {
-  lit: THREE.MeshPhysicalMaterial;
+  lit: THREE.Material;
   id: THREE.ShaderMaterial;
   colour: THREE.ShaderMaterial;
   index: number;
@@ -347,7 +358,7 @@ async function load(spec: Spec): Promise<Loaded> {
       const src = source as THREE.MeshStandardMaterial | undefined;
       const index = entries.length + 1;
       entry = {
-        lit: litMaterial(source, spec, uniforms),
+        lit: spec.sourceMaterials && source ? source : litMaterial(source, spec, uniforms),
         id: idMaterial(index),
         colour: colourMaterial(source),
         index,
@@ -629,6 +640,17 @@ export function init() {
         tintCoverageReview: null,
         colours: null,
         modelPixels: null,
+        materials: loaded.entries.map((e) => {
+          const m = e.lit as THREE.MeshStandardMaterial;
+          return {
+            alphaTest: m.alphaTest,
+            transparent: m.transparent,
+            doubleSided: m.side === THREE.DoubleSide,
+            map: !!m.map,
+            normalMap: !!m.normalMap,
+            metalnessMap: !!m.metalnessMap,
+          };
+        }),
       };
       const hasKey = spec.tintKey !== null;
       const encoding = { format: options.format ?? "png", quality: options.quality ?? 90 };

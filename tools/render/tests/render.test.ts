@@ -148,4 +148,25 @@ describe("renderer", () => {
     assert.equal(r.image.subarray(0, 4).toString("latin1"), "RIFF");
     assert.equal(r.image.subarray(8, 12).toString("latin1"), "WEBP");
   });
+  it("draws an example with its own materials, keeping alpha masking and double sides", async () => {
+    const masked: ReportModel = {
+      ...model("kenney:delivery"),
+      id: "test:masked",
+      model_path: "tools/render/tests/fixtures/quad-alpha-mask.gltf",
+      forward: "+x",
+      measure: "height",
+      measure_value: 1,
+      factor: null,
+    };
+    const flags = { image: true, tinted: false, analyse: false };
+    const own = await renderer.render(specFor(masked, "repo", true), flags);
+    assert.equal(own.materials.length, 1);
+    assert.ok(Math.abs(own.materials[0].alphaTest - 0.4) < 1e-6, `alphaTest ${own.materials[0].alphaTest}`);
+    assert.equal(own.materials[0].doubleSided, true);
+    assert.ok(own.image);
+
+    const matte = await renderer.render(specFor(masked, "repo"), flags);
+    assert.equal(matte.materials[0].alphaTest, 0, "a model is drawn with the game's matte material");
+    assert.equal(matte.materials[0].doubleSided, false);
+  });
 });
