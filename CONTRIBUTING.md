@@ -21,6 +21,12 @@ Then **claim** the slot with the issue form (Issues, "Claim a slot"; the board's
 
 **Third-party work** is someone else's model that you adapt or bring in. It is accepted only if its licence is `CC0-1.0`, `CC-BY-3.0` or `CC-BY-4.0`. Save the source's licence page under your pack's `licences/` folder (`.txt`, `.html`, `.md`, `.pdf` or `.png`) and point `licence_evidence` at it. Share-alike, non-commercial, no-derivatives, OGA-BY and unclear licences are refused. If the source does not say whether AI made the model, say `ai_generated = "unknown"`.
 
+Say honestly which it is. A model that is not wholly your own work must have `licence_evidence`. The validator cannot tell the difference; the review comment shows each model as "third-party (licence evidence: ...)" or "original (no licence_evidence)", and the owner reads it. A third-party model passed off as original is removed.
+
+### Saving the licence page
+
+Save the source's licence page with your browser (File > Save Page As, HTML) or with `curl -L <url> -o packs/<pack>/licences/<name>.html`. The saved page must show the licence and identify the model or its pack.
+
 Anything under CC-BY needs a `title`, and the credits are generated from your manifest, so fill it in properly.
 
 ## The pack format
@@ -81,7 +87,7 @@ Every key:
 |`kind`|What the thing is (`van`, `street.bench`, `tree.broadleaf` and so on); see `catalogue/kinds.toml`. It decides the triangle budget.|
 |`title`|The work's name as its source gives it. Required for any CC-BY model.|
 |Size key|Exactly one of `length` (metres along the forward axis, for vehicles and long things), `height` (metres tall) or `scale` (multiplies the model's own units, taken as metres). The game scales your model so it ends up this size.|
-|`forward`|Which model axis points the way the thing faces: `+x` (default), `-x`, `+z` or `-z`. The game turns the model so this points along +x. Needed for vehicles and anything with a front.|
+|`forward`|Which model axis points the way the thing faces: `+x` (default), `-x`, `+z` or `-z`. The game turns the model so this points along +x. Needed for vehicles and anything with a front. If the size check shows length and width swapped or wildly off, this is the usual cause: try each of `+x`, `-x`, `+z`, `-z` (see "If a check fails").|
 |`weight`|How often the game picks this variant compared with others of the same kind. Optional.|
 |`tint_key`|A `#rrggbb` colour. Parts of the model near this colour take the game's palette colour for each instance (the body paint of a van, say). Leave it out if nothing should change colour.|
 |`tint_tolerance`|How near a colour must be to the key, 0 to 1. Default 0.25.|
@@ -135,20 +141,36 @@ Two things are refused:
 
 ## Running the checks yourself
 
-Validator (needs [uv](https://docs.astral.sh/uv/); no other install):
+You need [uv](https://docs.astral.sh/uv/) for the validator and [pnpm](https://pnpm.io/) for the pictures.
+
+**Whole repository** (strict mode), and the same with a report file:
 
 ```
 uv run tools/validate.py
+uv run tools/validate.py --report report.json
 ```
 
-Pictures (the same renderer the pull request uses):
+**As the pull request check runs it** (compares your branch with `main`). Make a plain clone of `main` beside your checkout (a clone, not a git worktree), then:
+
+```
+git clone https://github.com/aurbano/simhood-assets ../assets-base
+uv run tools/validate.py --pr --base ../assets-base --pr-author <your GitHub login> --report report.json
+```
+
+**Pictures** (the same renderer the pull request uses). Use absolute paths, because `pnpm --dir tools` runs inside `tools/`:
 
 ```
 pnpm --dir tools install
-pnpm --dir tools render -- --repo . --report <report.json> --out out --only my-pack:panel-van
+pnpm --dir tools render -- --repo "$PWD" --report "$PWD/report.json" --out "$PWD/out" --only <your-pack:id>
 ```
 
-Write the report first with `uv run tools/validate.py --report <report.json>`, then pass the same path to the renderer. The pictures land in `out/`.
+The pictures land in `out/<pack>/`, which git ignores. pnpm's "Ignored build scripts" notice is harmless.
+
+## If a check fails
+
+- **Too many triangles, or a file too big:** reduce the model in your tool (for example Blender's Decimate modifier), resize textures to at most 1024 px and save them as PNG, then re-export as `.glb`.
+- **A large size error on a model that looks plausible:** usually a wrong `forward`. `forward` is the model's own axis that points the way a vehicle drives (or a prop faces), in the glTF frame with Y up. The validator turns the model so that axis points along +X. If the scaled size shows length and width swapped or wildly off, try `+x`, `-x`, `+z` and `-z` in turn.
+- **How size messages read:** they compare the footprint's long and short sides with the slot's length and width, whatever the model's orientation, and its height with the slot's height.
 
 ## Signing off your commits
 
@@ -158,7 +180,7 @@ The sign-off is the [Developer Certificate of Origin](https://developercertifica
 
 ## What a pull request may change
 
-Only files inside your own `packs/<pack>/` folder, plus the **status line** of a slot that one of your models fills: `missing` to `stand-in` or `have`, or `stand-in` to `have`. Changes to sizes, the rest of the catalogue, `tools/`, `examples/`, `.github/` and root files are the owner's alone and fail the checks.
+Only files inside your own `packs/<pack>/` folder, plus the **status line** of a slot that one of your models fills: `missing` to `stand-in` or `have`, or `stand-in` to `have`. These rules apply to everyone not listed in `CODEOWNERS`, and the pull request's author decides it. Changes to sizes, the rest of the catalogue, `tools/`, `examples/`, `.github/` and root files are the owner's alone and fail the checks.
 
 ### Replacing a stand-in
 

@@ -4,6 +4,8 @@ Slot id(s) this fills (for example `vehicles.panel-van`), or "none" if it fills 
 
 ## Original or third-party work
 
+Original work or third-party (with source), required:
+
 - [ ] Original work (I made it)
 - [ ] Third-party work. Source link: 
 
@@ -22,5 +24,5 @@ Licence of each model (`CC0-1.0`, `CC-BY-3.0` or `CC-BY-4.0`):
 
 - [ ] Every commit is signed off (`git commit -s`; fix with `git commit --amend -s`)
 - [ ] "Allow edits by maintainers" is on
-- [ ] I ran `uv run tools/validate.py` and it passes
+- [ ] I ran the pull request check locally (`uv run tools/validate.py --pr ...`, see CONTRIBUTING) and it passes
 - [ ] I only changed files in my pack, plus the status line of the slot I fill
