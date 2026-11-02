@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "mode": "strict",
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "models": [
+    {
+      "id": "kenney:delivery",
+      "pack": "kenney",
+      "model_path": "packs/kenney/vehicles/delivery.glb",
+      "model_files": [
+        "packs/kenney/vehicles/delivery.glb"
+      ],
+      "measure": "length",
+      "measure_value": 5.5,
+      "forward": "+z",
+      "flat_shading": false,
+      "tint_key": null,
+      "tint_tolerance": 0.25,
+      "factor": 1.692307816454654,
+      "triangles": 2476
+    },
+    {
+      "id": "kaykit:car_sedan",
+      "pack": "kaykit-city",
+      "model_path": "packs/kaykit-city/car_sedan.gltf",
+      "model_files": [
+        "packs/kaykit-city/car_sedan.gltf",
+        "packs/kaykit-city/car_sedan.bin",
+        "packs/kaykit-city/citybits_texture.png"
+      ],
+      "measure": "length",
+      "measure_value": 4.2,
+      "forward": "+z",
+      "flat_shading": false,
+      "tint_key": null,
+      "tint_tolerance": 0.25,
+      "factor": 4.477263594631501,
+      "triangles": 1222
+    },
+    {
+      "id": "polypizza:bus-stop-sign",
+      "pack": "polypizza",
+      "model_path": "packs/polypizza/street/bus-stop-sign.glb",
+      "model_files": [
+        "packs/polypizza/street/bus-stop-sign.glb"
+      ],
+      "measure": "height",
+      "measure_value": 2.5,
+      "forward": "+x",
+      "flat_shading": false,
+      "tint_key": null,
+      "tint_tolerance": 0.25,
+      "factor": 0.10316902115323145,
+      "triangles": 1450
+    },
+    {
+      "id": "kaykit:bush_1_b",
+      "pack": "kaykit-forest",
+      "model_path": "packs/kaykit-forest/Bush_1_B_Color1.gltf",
+      "model_files": [
+        "packs/kaykit-forest/Bush_1_B_Color1.gltf",
+        "packs/kaykit-forest/Bush_1_B_Color1.bin",
+        "packs/kaykit-forest/forest_texture.png"
+      ],
+      "measure": "scale",
+      "measure_value": 1.1,
+      "forward": "+x",
+      "flat_shading": false,
+      "tint_key": "#48993b",
+      "tint_tolerance": 0.45,
+      "factor": 1.1,
+      "triangles": 168
+    }
+  ],
+  "slots": [],
+  "examples": []
+}

@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>simhood asset renderer</title>
+<script type="importmap">
+{"imports": {"three": "/three/build/three.module.js", "three/addons/": "/three/examples/jsm/"}}
+</script>
+<script type="module">
+  import { init } from "/page/scene.ts";
+  window.simhood = init();
+  window.simhoodReady = true;
+</script>
