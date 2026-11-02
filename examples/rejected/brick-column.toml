@@ -1,0 +1,9 @@
+id = "example:brick-column"
+kind = "site.bricks"
+height = 3.0
+title = "Brick column (small)"
+author = "Quaternius"
+source = "https://quaternius.itch.io/downtown-city-megakit"
+licence = "CC0-1.0"
+licence_evidence = "licences/quaternius-downtown-city-megakit__licence-page.html"
+ai_generated = "no"

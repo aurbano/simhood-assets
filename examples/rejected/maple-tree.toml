@@ -1,0 +1,9 @@
+id = "example:maple-tree"
+kind = "tree.broadleaf"
+height = 8.0
+title = "Maple tree 1"
+author = "Quaternius"
+source = "https://quaternius.com/packs/ultimatestylizednature.html"
+licence = "CC0-1.0"
+licence_evidence = "licences/quaternius-ultimate-stylized-nature__licence-page.html"
+ai_generated = "unknown"

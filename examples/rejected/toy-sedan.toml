@@ -1,0 +1,10 @@
+id = "example:toy-sedan"
+kind = "car"
+length = 4.5
+forward = "+z"
+title = "Sedan (Car Kit)"
+author = "Kenney"
+source = "https://kenney.nl/assets/car-kit"
+licence = "CC0-1.0"
+licence_evidence = "licences/kenney-car-kit__License.txt"
+ai_generated = "unknown"

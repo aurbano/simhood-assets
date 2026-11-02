@@ -1,0 +1,9 @@
+id = "example:mini-character"
+kind = "person.pedestrian"
+height = 1.75
+title = "Character male a (Mini Characters)"
+author = "Kenney"
+source = "https://kenney.nl/assets/mini-characters"
+licence = "CC0-1.0"
+licence_evidence = "licences/kenney-mini-characters__License.txt"
+ai_generated = "unknown"

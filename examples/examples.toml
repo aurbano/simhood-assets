@@ -1,0 +1,46 @@
+# Style-guide examples for the asset board: shipped models that show the family, and CC0 models turned down.
+
+[[good]]
+model = "kaykit:car_sedan"
+why = "Chunky, softly bevelled body with small wheels and a real car's proportions, flat colours and a simple glazed cabin."
+
+[[good]]
+model = "kenney:window-brown"
+why = "A plain frame and broad glazing: readable trim with no ornament, so it sits on any wall."
+
+[[good]]
+model = "quaternius:sheep"
+why = "Solid, rounded animal in flat colours with no fur cards or fine detail, at true size."
+
+[[good]]
+model = "kaykit:tree_1_a"
+why = "A trunk and a few solid canopy masses instead of leaf cards, in restrained greens."
+
+[[good]]
+model = "anker:scaffolding_a"
+why = "Clean geometry, broad bevels and flat colour, with no grime or wear, yet clearly a scaffold."
+
+[[rejected]]
+id = "example:brick-column"
+name = "Photographic brick column"
+why = "Realistic PBR brick with a 2048 px texture and surface wear; the family uses flat colours and simple geometry."
+
+[[rejected]]
+id = "example:mini-character"
+name = "Big-headed toy character"
+why = "A head as wide as the torso on stubby limbs; people need adult proportions at about 1.75 m."
+
+[[rejected]]
+id = "example:maple-tree"
+name = "Leaf-card maple tree"
+why = "The canopy is hundreds of loose textured cards; trees must be a few solid, grouped masses."
+
+[[rejected]]
+id = "example:toy-sedan"
+name = "Toy-proportioned sedan"
+why = "Oversized wheels, a tall body and a short cabin make it read as a toy next to real-sized cars."
+
+[[rejected]]
+id = "example:grimy-barrel"
+name = "Rusted, weathered barrel"
+why = "Painted-on rust patches and a battered look; the family stays clean and un-weathered."
