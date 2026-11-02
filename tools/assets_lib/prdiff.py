@@ -36,10 +36,9 @@ class FileChanges:
 def diff_trees(base: Path, head: Path) -> FileChanges:
     """Files added, modified and deleted in `head` against `base`.
 
-    `node_modules` is not looked into in either tree (a checkout of the base has the tools'
-    dependencies installed, the pull request's does not); everything else is.
+    Each tree is listed by `repo.list_files`: ignored files and `.git` are not part of a tree.
     """
-    out = FileChanges(head_files=list_files(head, skip_node_modules=True), base_files=list_files(base, skip_node_modules=True))
+    out = FileChanges(head_files=list_files(head), base_files=list_files(base))
     for rel, path in out.head_files.items():
         other = out.base_files.get(rel)
         if other is None:

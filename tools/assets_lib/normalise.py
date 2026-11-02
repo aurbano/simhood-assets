@@ -14,6 +14,8 @@ DEFAULT_TOLERANCE = 0.5
 WARN_SHARE = 0.4
 # An axis whose scaled size is below this many metres is not compared with the slot.
 FLAT_AXIS_M = 0.02
+LONG_SIDE = "footprint long side"
+SHORT_SIDE = "footprint short side"
 
 
 @dataclass
@@ -68,7 +70,7 @@ def compare(scaled: Scaled, wanted: dict, tolerance: float | None) -> list[tuple
     found = []
     long_m, short_m = max(scaled.length, scaled.width), min(scaled.length, scaled.width)
     long_w, short_w = max(wanted["length"], wanted["width"]), min(wanted["length"], wanted["width"])
-    for axis, got, want in (("length", long_m, long_w), ("width", short_m, short_w), ("height", scaled.height, wanted["height"])):
+    for axis, got, want in ((LONG_SIDE, long_m, long_w), (SHORT_SIDE, short_m, short_w), ("height", scaled.height, wanted["height"])):
         if got < FLAT_AXIS_M:
             continue  # a flat piece (a door panel) has no depth to compare
         d = deviation(got, want)

@@ -53,6 +53,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"ERROR {e['path']}: {e['message']}")
     for w in report["warnings"]:
         print(f"WARN {w['path']}: {w['message']}")
+    if args.pr:
+        # The reviewer must see how each affected model presents itself: a third-party work filed
+        # without licence evidence cannot be detected.
+        for m in report["models"]:
+            print(f"MODEL {m['manifest_path']}: {m['id']} ({m['change']}) origin: {m['origin']}")
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
         args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

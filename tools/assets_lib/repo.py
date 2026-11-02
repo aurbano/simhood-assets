@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import os
 import re
+import subprocess
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -52,14 +53,47 @@ class Tree:
     examples: list[ModelEntry] = field(default_factory=list)
 
 
-def list_files(root: Path, skip_node_modules: bool = False) -> dict[str, Path]:
-    """Every file below `root` (symlinks included, not followed) by posix relative path."""
-    out: dict[str, Path] = {}
+def _git_files(root: Path) -> list[str] | None:
+    """The files git considers part of the tree (tracked or untracked, not ignored), when `root` is
+    the top of a git work tree; otherwise None."""
+    try:
+        top = subprocess.run(
+            ["git", "-C", str(root), "rev-parse", "--show-toplevel"], capture_output=True, text=True, check=False
+        )
+        if top.returncode != 0 or Path(top.stdout.strip()).resolve() != root.resolve():
+            return None
+        listing = subprocess.run(
+            ["git", "-C", str(root), "ls-files", "-co", "--exclude-standard", "-z"], capture_output=True, check=False
+        )
+    except OSError:
+        return None
+    if listing.returncode != 0:
+        return None
+    return [name for name in listing.stdout.decode("utf-8", "surrogateescape").split("\0") if name]
+
+
+def list_files(root: Path) -> dict[str, Path]:
+    """Every file of the tree at `root` by posix relative path (symlinks included, not followed).
+
+    In a git work tree this is what `git ls-files -co --exclude-standard` lists, so ignored files
+    (`out/`, `node_modules`) are never judged, and `.git` never appears. Elsewhere it walks the folder,
+    skipping `.git`, `node_modules`, `out` and tool caches.
+    """
+    tracked = _git_files(root)
+    if tracked is not None:
+        out: dict[str, Path] = {}
+        for rel in sorted(tracked):
+            path = root / rel
+            # A tracked file deleted in the work tree is still in the index; it is not in the tree.
+            if rel.split("/")[0] != ".git" and os.path.lexists(path) and not path.is_dir():
+                out[rel] = path
+        return out
+    out = {}
     for dirpath, dirnames, filenames in os.walk(root, followlinks=False):
-        dirnames[:] = sorted(d for d in dirnames if d not in SKIP_DIRS and not (skip_node_modules and d == "node_modules"))
+        dirnames[:] = sorted(d for d in dirnames if d not in SKIP_DIRS and d not in ("node_modules", "out"))
         base = Path(dirpath)
         for name in sorted(filenames):
-            if name == ".DS_Store":
+            if name in (".DS_Store", ".git"):
                 continue
             path = base / name
             out[path.relative_to(root).as_posix()] = path

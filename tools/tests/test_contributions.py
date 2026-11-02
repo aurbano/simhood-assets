@@ -117,10 +117,12 @@ def test_ACON_007_a_model_at_ten_times_its_size_fails(tmp_path):
     errors = where(report, "size.fail")
     assert len(errors) == 1
     assert "54.00 x 20.00 x 25.00" in errors[0]["message"] and "5.4 x 2 x 2.5" in errors[0]["message"]
+    assert "footprint long side" in errors[0]["message"] and "footprint short side" in errors[0]["message"]
+    assert " length " not in errors[0]["message"] and " width " not in errors[0]["message"]
     report = _sized(tmp_path, "close", (6.6, 2.1, 2.6))
     assert report["errors"] == []
     warns = where(report, "size.warn", "warnings")
-    assert len(warns) == 1 and "length is 22% off" in warns[0]["message"]
+    assert len(warns) == 1 and "footprint long side is 22% off" in warns[0]["message"]
     report = _sized(tmp_path, "near", (6.1, 2.1, 2.6))
     assert report["errors"] == [] and report["warnings"] == []
 

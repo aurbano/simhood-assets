@@ -202,8 +202,11 @@ def _check_slot_fit(
     found = normalise.compare(scaled, slot.size, slot.size_tolerance)
     if not found:
         return
-    size = f"{scaled.length:.2f} x {scaled.width:.2f} x {scaled.height:.2f} m"
-    wanted = f"{slot.size['length']:g} x {slot.size['width']:g} x {slot.size['height']:g} m"
+    long_m, short_m = max(scaled.length, scaled.width), min(scaled.length, scaled.width)
+    long_w, short_w = max(slot.size["length"], slot.size["width"]), min(slot.size["length"], slot.size["width"])
+    size = f"{long_m:.2f} x {short_m:.2f} x {scaled.height:.2f} m"
+    wanted = f"{long_w:g} x {short_w:g} x {slot.size['height']:g} m"
+    order = "footprint long side x footprint short side x height"
     parts = {"fail": [], "warn": []}
     for axis, level, d, tol in found:
         parts[level].append(f"{axis} is {d * 100:.0f}% off")
@@ -211,15 +214,24 @@ def _check_slot_fit(
     if parts["fail"]:
         f.error(
             entry.model_path or path, "size.fail",
-            f"scaled size {size} (length x width x height) is far from slot {slot.id}'s {wanted}: "
+            f"scaled size {size} ({order}) is far from slot {slot.id}'s {wanted}: "
             + ", ".join(parts["fail"]) + f" (limit {tol * 100:.0f}%)", m.id,
         )
     if parts["warn"]:
         f.warn(
             entry.model_path or path, "size.warn",
-            f"scaled size {size} differs from slot {slot.id}'s {wanted}: "
+            f"scaled size {size} ({order}) differs from slot {slot.id}'s {wanted}: "
             + ", ".join(parts["warn"]) + f" (warns beyond {normalise.WARN_SHARE * tol * 100:.0f}%)", m.id,
         )
+
+
+def origin(m: Manifest) -> str:
+    """How the model presents itself: a third-party work names its saved licence evidence, original
+    work does not. A third-party model filed without evidence cannot be told apart, so a reviewer must
+    see this line."""
+    if m.licence_evidence:
+        return f"third-party (licence evidence: {m.licence_evidence})"
+    return "original (no licence_evidence)"
 
 
 def _round(value: float | None, digits: int = 4) -> float | None:
@@ -267,6 +279,7 @@ def _row(
         "attribution": m.attribution,
         "source": eff.source,
         "licence_evidence": m.licence_evidence,
+        "origin": origin(m),
         "changes": list(m.changes),
         "contributors": list(m.contributors),
         "ai_generated": eff.ai_generated,
@@ -358,13 +371,16 @@ def validate(
         if slot is None and m.kind not in cat.kinds and not m.slot:
             f.error(entry.manifest_path, "manifest.kind", f"kind `{m.kind}` is not listed in catalogue/kinds.toml", m.id)
 
-    # Slot consistency (ACAT-004) and wanted variants (ACAT-007)
+    # Slot consistency (ACAT-004) and wanted variants (ACAT-007). A manifest that could not be read, or
+    # one naming a slot the catalogue lacks, may be the model a `have` slot is missing.
+    may_follow = any(e["rule"] in ("manifest.invalid", "slot.unknown") for e in f.errors)
+    knock_on = " (this may follow from an error above)" if may_follow else ""
     slot_rows = []
     for sid, slot in cat.slots.items():
         named = by_slot.get(sid, [])
         paths = manifest_paths_by_slot.get(sid, [])
         if slot.status in ("have", "stand-in") and not named:
-            f.error(slot.file, "slot.status", f"slot `{sid}` is `{slot.status}` but no manifest names it (set it to `missing` or add a model)")
+            f.error(slot.file, "slot.status", f"slot `{sid}` is `{slot.status}` but no manifest names it (set it to `missing` or add a model){knock_on}")
         if slot.status in ("missing", "procedural") and named:
             f.error(
                 slot.file, "slot.status",
@@ -445,7 +461,8 @@ def validate(
     # Examples (file, licence and provenance rules; no slot, budget or size)
     example_rows = _check_examples(f, root, tree, example_checks, khronos_results, set(seen_ids), pr, examples_changed)
 
-    waived = _apply_waivers(f, root, tree)
+    only = {r["id"] for r in rows} if pr else None  # a pull request's affected models, deleted ones included
+    waived = _apply_waivers(f, root, tree, only)
     errors = sorted(f.errors, key=lambda e: (e["path"], e["rule"], e["message"]))
     warnings = sorted(f.warnings, key=lambda e: (e["path"], e["rule"], e["message"]))
     rows.sort(key=lambda r: (r["manifest_path"], r["id"]))
@@ -462,14 +479,19 @@ def validate(
     }
 
 
-def _apply_waivers(f: Findings, root: Path, tree: repo.Tree) -> list[dict]:
-    """Moves the findings a still-valid waiver excuses from the errors to the waived list."""
+def _apply_waivers(f: Findings, root: Path, tree: repo.Tree, only: set[str] | None = None) -> list[dict]:
+    """Moves the findings a still-valid waiver excuses from the errors to the waived list.
+
+    `only` limits the check to those model ids (a pull request's affected models); strict mode checks
+    every waiver."""
     loaded, problems = waivers.load(root)
     for message in problems:
         f.error(waivers.PATH, "waiver.schema", message)
     entries = {e.manifest.id: e for p in tree.packs for e in p.models if e.manifest is not None}
     waived: list[dict] = []
     for w in loaded:
+        if only is not None and w.model not in only:
+            continue
         entry = entries.get(w.model)
         if entry is None or entry.model_path is None:
             f.error(waivers.PATH, "waiver.stale", f"waiver for `{w.model}`: no such model any more; remove the waiver", w.model)

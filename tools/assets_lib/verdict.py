@@ -63,8 +63,8 @@ def _model_rows(report: dict, slots: dict[str, Any] | None) -> list[str]:
             if f.get("model"):
                 store[f["model"]] = store.get(f["model"], 0) + 1
     lines = [
-        "| Model | Change | Slot | Triangles | Size in metres (slot wants) | Licence | AI | Findings |",
-        "|---|---|---|---|---|---|---|---|",
+        "| Model | Change | Origin | Slot | Triangles | Size in metres (slot wants) | Licence | AI | Findings |",
+        "|---|---|---|---|---|---|---|---|---|",
     ]
     for m in report["models"][:MAX_ROWS]:
         slot = (slots or {}).get(m.get("slot") or "")
@@ -79,7 +79,7 @@ def _model_rows(report: dict, slots: dict[str, Any] | None) -> list[str]:
         if m.get("renamed_from"):
             change += f" (from {md(m['renamed_from'], 80)})"
         lines.append(
-            f"| {md(m['id'])} | {md(change)} | {md(m.get('slot') or '—')} | {tri} | {_dims(m.get('size_m'))}{wants} "
+            f"| {md(m['id'])} | {md(change)} | {md(m.get('origin') or '—', 120)} | {md(m.get('slot') or '—')} | {tri} | {_dims(m.get('size_m'))}{wants} "
             f"| {md(m.get('licence') or '—')} | {_ai(m)} | {notes} |"
         )
     if len(report["models"]) > MAX_ROWS:

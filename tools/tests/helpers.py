@@ -6,7 +6,7 @@ from assets_lib import checker
 def run(repo, **kw) -> dict:
     """The strict report for a test repository, without the Khronos validator (unit tests)."""
     kw.setdefault("gltf_validator", False)
-    return checker.validate(repo.root if hasattr(repo, "root") else repo, **kw)
+    return checker.validate(repo if isinstance(repo, Path) else repo.root, **kw)
 
 
 def rules(report: dict, kind: str = "errors") -> list[str]:

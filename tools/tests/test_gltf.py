@@ -271,4 +271,4 @@ def test_a_flat_axis_is_not_compared_with_the_slot():
     s = normalise.Scaled(1.0, 4.5, 0.0, 4.0)
     assert normalise.compare(s, {"length": 4.5, "width": 0.1, "height": 4.0}, None) == []
     s = normalise.Scaled(1.0, 4.5, 1.0, 4.0)
-    assert [x[0] for x in normalise.compare(s, {"length": 4.5, "width": 0.1, "height": 4.0}, None)] == ["width"]
+    assert [x[0] for x in normalise.compare(s, {"length": 4.5, "width": 0.1, "height": 4.0}, None)] == ["footprint short side"]
