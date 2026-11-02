@@ -1,0 +1,77 @@
+# Publishes the pictures render.yml drew. Base-branch code only: it never checks out or runs a
+# pull request's files. tools/publish.py binds the artifact to its run, the pull request's current
+# head and the verdict's model list, accepts only small PNGs, and names every file itself (D10).
+name: preview
+
+on:
+  workflow_run:
+    workflows: [render]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+env:
+  REPO: ${{ github.repository }}
+  RUN_ID: ${{ github.event.workflow_run.id }}
+
+jobs:
+  publish:
+    if: ${{ github.event.workflow_run.event == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Serialises the rebuilds of the previews branch (with cancel-in-progress off, a run waits).
+    concurrency:
+      group: previews
+      cancel-in-progress: false
+    outputs:
+      pr: ${{ steps.publish.outputs.pr }}
+    steps:
+      - name: Check out the default branch, for the publisher only
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: false
+      - name: Publish the pictures
+        id: publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run tools/publish.py pictures --repo "$REPO" --run-id "$RUN_ID" --section-out section/pictures.md --wait-verdict 300
+      - name: Keep the section for the comment job
+        if: ${{ steps.publish.outputs.pr != '' }}
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pictures-section
+          path: section/pictures.md
+          retention-days: 1
+
+  comment:
+    needs: publish
+    if: ${{ needs.publish.outputs.pr != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: comment-pr-${{ needs.publish.outputs.pr }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: pictures-section
+          path: section
+      - name: Update the pictures section
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ needs.publish.outputs.pr }}
+        run: uv run tools/publish.py comment --repo "$REPO" --pr "$PR" --section pictures --file section/pictures.md

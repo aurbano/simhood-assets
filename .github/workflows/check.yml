@@ -1,0 +1,131 @@
+# The verdict on a pull request: sign-off and validation, run by the BASE branch's code with the
+# pull request's files as data (design D10). Nothing from `pr/` is ever installed, imported or run.
+name: check
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+  statuses: write
+
+concurrency:
+  group: check-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  REPO: ${{ github.repository }}
+  PR: ${{ github.event.pull_request.number }}
+  HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+  AUTHOR: ${{ github.event.pull_request.user.login }}
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # The base branch: the tools that judge. The default checkout of this event is the base.
+      - name: Check out the base branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: base
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: false
+
+      - name: Mark both checks as running
+        run: |
+          uv run base/tools/publish.py status --repo "$REPO" --sha "$HEAD_SHA" --context assets/dco \
+            --state pending --description "Checking the sign-off of every commit" --url "$RUN_URL"
+          uv run base/tools/publish.py status --repo "$REPO" --sha "$HEAD_SHA" --context assets/validate \
+            --state pending --description "Validating the models" --url "$RUN_URL"
+
+      # The pull request's head commit: data only. No install, import or script ever runs from pr/.
+      - name: Fetch the pull request's files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
+          persist-credentials: false
+
+      # Node and the base branch's own dependencies (from the BASE lockfile) for the glTF Validator.
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          package_json_file: base/tools/package.json
+          run_install: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: base/tools/pnpm-lock.yaml
+      - name: Install the base branch's tools
+        run: pnpm --ignore-workspace --dir base/tools install --frozen-lockfile
+
+      - name: Sign-off check
+        id: dco
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          uv run base/tools/dco.py --repo "$REPO" --pr "$PR" --out out/dco.json
+
+      - name: Validate
+        id: validate
+        continue-on-error: true
+        run: |
+          mkdir -p out
+          uv run base/tools/validate.py --repo pr --base base --pr --pr-author "$AUTHOR" --report out/report.json
+
+      - name: Record what was examined
+        if: always()
+        run: |
+          mkdir -p out
+          jq -n --argjson pr "$PR" --arg sha "$HEAD_SHA" '{pr: $pr, head_sha: $sha}' > out/meta.json
+
+      - name: Post the results as commit statuses
+        if: always()
+        run: uv run base/tools/publish.py statuses --repo "$REPO" --sha "$HEAD_SHA" --dir out --url "$RUN_URL"
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: verdict
+          path: out/
+          if-no-files-found: warn
+          retention-days: 14
+
+  # One comment per pull request. Serialised with the preview workflow's pictures update, which
+  # writes the other section of the same comment.
+  comment:
+    needs: check
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: comment-pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: base
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: false
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        continue-on-error: true
+        with:
+          name: verdict
+          path: out
+      - name: Update the verdict section
+        run: |
+          mkdir -p out
+          uv run base/tools/publish.py verdict --repo "$REPO" --pr "$PR" --head-sha "$HEAD_SHA" \
+            --dir out --url "$RUN_URL" --base base
