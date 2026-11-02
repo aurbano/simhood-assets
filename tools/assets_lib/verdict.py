@@ -52,7 +52,7 @@ def _ai(m: dict) -> str:
 def _dims(size: dict | None) -> str:
     if not size:
         return "—"
-    return " × ".join(f"{size[k]:g}" for k in ("length", "width", "height") if size.get(k) is not None)
+    return " × ".join(f"{round(size[k], 2):g}" for k in ("length", "width", "height") if size.get(k) is not None)
 
 
 def _model_rows(report: dict, slots: dict[str, Any] | None) -> list[str]:
