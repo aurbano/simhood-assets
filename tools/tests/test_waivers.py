@@ -35,7 +35,7 @@ def test_a_waiver_moves_matching_findings_to_waived(tmp_path):
     assert row(report, "mine:van")["textures"] == 3
 
 
-def test_a_changed_file_revives_the_error_and_the_waiver_goes_stale(tmp_path):
+def test_acon_020_a_changed_file_revives_the_error_and_the_waiver_goes_stale(tmp_path):
     repo = waived_repo(tmp_path, three_textures())
     repo.write("packs/mine/vehicles/van.glb", three_textures(extra_bytes=4096))
     report = run(repo)
