@@ -1,0 +1,6 @@
+id = "kenney:crops_dirtdoublerow_veg"
+kind = "farm.crop_veg"
+# Model units 1 x 0.05 x 0.938 (x, y, z, measured on the shipped glb); height = 0.05 m on its height (y) gives scale 1, so 1 x 0.05 x 0.938 m.
+# soil row component shared with the wheat patch.
+height = 0.05
+source = "https://kenney.nl/assets/nature-kit"

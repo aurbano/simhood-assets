@@ -1,0 +1,6 @@
+id = "kenney:planter"
+kind = "street.planter"
+# Model units 0.4 x 0.1771 x 0.3 (x, y, z, measured on the shipped glb); height = 0.65 m on its height (y) gives scale 3.67, so 1.468 x 0.65 x 1.101 m.
+height = 0.65
+weight = 3
+source = "https://kenney.nl/assets/city-kit-suburban"

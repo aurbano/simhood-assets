@@ -1,0 +1,5 @@
+id = "kenney:pipe-large-long"
+kind = "industry.pipes"
+# Model units 2 x 1 x 1 (x, y, z, measured on the shipped glb); height = 0.4 m on its height (y) gives scale 0.4, so 0.8 x 0.4 x 0.4 m.
+height = 0.4
+source = "https://kenney.nl/assets/factory-kit"

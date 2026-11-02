@@ -1,0 +1,5 @@
+id = "kenney:door-brown-glass"
+kind = "part.door.shop"
+# Model units 0.25 x 0.5 x 0.05 (x, y, z, measured on the shipped glb); height = 2.1 m on its height (y) gives scale 4.2, so 1.05 x 2.1 x 0.21 m.
+height = 2.1
+source = "https://kenney.nl/assets/modular-buildings"

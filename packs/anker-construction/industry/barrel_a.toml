@@ -1,0 +1,4 @@
+id = "anker:barrel_a"
+kind = "yard.drum"
+# Model units 1.2013 x 1.4813 x 1.2013 (x, y, z, measured on the shipped glb); height = 0.88 m on its height (y) gives scale 0.5941, so 0.7137 x 0.88 x 0.7137 m.
+height = 0.88

@@ -1,0 +1,6 @@
+id = "quaternius:sign_stop"
+kind = "street.sign"
+# Model units 0.0233 x 0.5377 x 0.1384 (x, y, z, measured on the shipped glb); height = 2.4 m on its height (y) gives scale 4.4634, so 0.1039 x 2.4 x 0.6178 m.
+height = 2.4
+ai_generated = "no"
+source = "https://quaternius.itch.io/lowpoly-modular-street"

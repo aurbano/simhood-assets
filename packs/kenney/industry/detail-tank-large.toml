@@ -1,0 +1,5 @@
+id = "kenney:detail-tank-large"
+kind = "industry.silo"
+# Model units 1.5084 x 0.9616 x 1.6484 (x, y, z, measured on the shipped glb); height = 3 m on its height (y) gives scale 3.1198, so 4.7059 x 3 x 5.1427 m.
+height = 3.0
+source = "https://kenney.nl/assets/city-kit-industrial"

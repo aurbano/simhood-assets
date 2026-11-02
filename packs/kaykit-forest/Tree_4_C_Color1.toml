@@ -1,0 +1,8 @@
+id = "kaykit:tree_4_c"
+kind = "tree.conifer"
+# 10.774 model units tall, so 12.93 m at this scale.
+scale = 1.2
+weight = 2
+# Leaves only: the atlas's trunk browns are 1.08+ from the key in hue, the whole green swatch within 0.27 of it.
+tint_key = "#509e3c"
+tint_tolerance = 0.45

@@ -1,0 +1,6 @@
+id = "oga:crane-on-ground"
+kind = "site.crane"
+# Model units 24.476 x 54.0759 x 41.6066 (x, y, z, measured on the shipped glb); height = 30 m on its height (y) gives scale 0.5548, so 13.5787 x 30 x 23.0824 m.
+height = 30.0
+author = "Majadroid"
+source = "https://opengameart.org/content/3d-house-construction-site-lowpoly-cc0"

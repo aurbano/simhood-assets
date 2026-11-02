@@ -1,0 +1,5 @@
+id = "innerscene:construction-site-cabin"
+kind = "site.cabin"
+# Model units 6.48 x 2.72 x 2.91 (x, y, z, measured on the shipped glb); height = 2.72 m on its height (y) gives scale 1, so 6.48 x 2.72 x 2.91 m.
+height = 2.72
+source = "https://www.innerscene.com/tools/library/3d-parts/construction-site-cabin-6da41273"

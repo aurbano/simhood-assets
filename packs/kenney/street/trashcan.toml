@@ -1,0 +1,5 @@
+id = "kenney:trashcan"
+kind = "street.litter_bin"
+# Model units 0.2077 x 0.4279 x 0.2341 (x, y, z, measured on the shipped glb); height = 0.8 m on its height (y) gives scale 1.8697, so 0.3883 x 0.8 x 0.4378 m.
+height = 0.8
+source = "https://kenney.nl/assets/furniture-kit"

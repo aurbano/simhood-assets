@@ -1,0 +1,8 @@
+id = "oga:midibus_quevedo"
+kind = "bus"
+# Model units 5.1122 x 5.1217 x 16.0143 (x, y, z, measured on the shipped glb); length = 8 m on its forward +z extent gives scale 0.4996, so 2.5538 x 2.5586 x 8 m.
+# body material is vivid lime; recolour planned.
+length = 8.0
+forward = "+z"
+author = "Daniel Quevedo"
+source = "https://opengameart.org/content/low-poly-vehicles-pack"

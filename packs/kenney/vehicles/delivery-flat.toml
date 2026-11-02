@@ -1,0 +1,7 @@
+id = "kenney:delivery-flat"
+kind = "truck.flatbed"
+# Model units 1.5 x 1.35 x 3.25 (x, y, z, measured on the shipped glb); length = 5.5 m on its forward +z extent gives scale 1.6923, so 2.5385 x 2.2846 x 5.5 m.
+# kitbash donor named in the recommendation; ships as an unloaded flatbed.
+length = 5.5
+forward = "+z"
+source = "https://kenney.nl/assets/car-kit"

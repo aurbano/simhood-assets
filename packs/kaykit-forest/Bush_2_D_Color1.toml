@@ -1,0 +1,7 @@
+id = "kaykit:bush_2_d"
+kind = "cover.bushes"
+# 0.858 model units tall, so 0.94 m at this scale.
+scale = 1.1
+# Leaves only: the atlas's trunk browns are 1.08+ from the key in hue, the whole green swatch within 0.27 of it.
+tint_key = "#48993b"
+tint_tolerance = 0.45

@@ -1,0 +1,4 @@
+id = "anker:cement_mixer"
+kind = "site.mixer"
+# Model units 1.0139 x 1.5563 x 1.3553 (x, y, z, measured on the shipped glb); height = 1.4 m on its height (y) gives scale 0.8996, so 0.9121 x 1.4 x 1.2192 m.
+height = 1.4

@@ -1,0 +1,7 @@
+id = "oga:coach_rgsdev"
+kind = "coach"
+# Model units 3.8138 x 4.2741 x 13.6985 (x, y, z, measured on the shipped glb); length = 9.2 m on its forward +z extent gives scale 0.6716, so 2.5614 x 2.8705 x 9.2 m.
+length = 9.2
+forward = "+z"
+author = "Rgsdev"
+source = "https://opengameart.org/content/free-low-poly-vehicles-pack"

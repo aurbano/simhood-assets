@@ -1,0 +1,6 @@
+id = "quaternius:cow"
+kind = "animal.cow"
+# Model units 2.2496 x 5.1477 x 9.1724 (x, y, z, measured on the shipped glb); height = 1.4 m on its height (y) gives scale 0.272, so 0.6118 x 1.4 x 2.4946 m.
+height = 1.4
+ai_generated = "no"
+source = "https://quaternius.itch.io/lowpoly-animated-animals"

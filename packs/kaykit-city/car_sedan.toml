@@ -1,0 +1,7 @@
+id = "kaykit:car_sedan"
+kind = "car"
+# 0.938 model units long along +z (the sedan class is 0.938 and is 4.2 m, like the kit car).
+length = 4.2
+# The front wheel nodes sit at +z (z = +0.245 against -0.256 for the rear wheels).
+forward = "+z"
+weight = 4

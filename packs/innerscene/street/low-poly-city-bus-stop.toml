@@ -1,0 +1,5 @@
+id = "innerscene:low-poly-city-bus-stop"
+kind = "street.bus_stop"
+# Model units 3.825 x 2.71 x 1.7 (x, y, z, measured on the shipped glb); height = 2.6 m on its height (y) gives scale 0.9594, so 3.6697 x 2.6 x 1.631 m.
+height = 2.6
+source = "https://www.innerscene.com/tools/library/3d-parts/low-poly-city-bus-stop-9362e786"

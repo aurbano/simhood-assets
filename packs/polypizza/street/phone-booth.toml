@@ -1,0 +1,7 @@
+id = "polypizza:phone-booth"
+kind = "street.phone_box"
+# Model units 7.6786 x 15.212 x 7.6786 (x, y, z, measured on the shipped glb); height = 2.4 m on its height (y) gives scale 0.1578, so 1.2115 x 2.4 x 1.2115 m.
+height = 2.4
+licence = "CC-BY-3.0"
+author = "Zsky"
+source = "https://poly.pizza/m/nx9Cqdzq97"

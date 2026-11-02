@@ -1,0 +1,4 @@
+id = "anker:scaffolding_a"
+kind = "site.scaffold"
+# Model units 1.9439 x 3.897 x 4.7576 (x, y, z, measured on the shipped glb); height = 3 m on its height (y) gives scale 0.7698, so 1.4965 x 3 x 3.6625 m.
+height = 3.0

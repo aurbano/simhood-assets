@@ -1,0 +1,6 @@
+id = "kenney:detail-awning"
+kind = "part.wall.awning"
+# Model units 0.4 x 0.4 x 0.1479 (x, y, z, measured on the shipped glb); height = 2.4 m on its height (y) gives scale 6, so 2.4 x 2.4 x 0.8873 m.
+height = 2.4
+weight = 2
+source = "https://kenney.nl/assets/city-kit-commercial"

@@ -1,0 +1,6 @@
+id = "quaternius:streetlight_single"
+kind = "street.lamp"
+# Model units 0.1317 x 1.0904 x 0.1317 (x, y, z, measured on the shipped glb); height = 4.5 m on its height (y) gives scale 4.127, so 0.5436 x 4.5 x 0.5436 m.
+height = 4.5
+ai_generated = "no"
+source = "https://quaternius.itch.io/lowpoly-modular-street"

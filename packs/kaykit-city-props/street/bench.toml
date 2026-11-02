@@ -1,0 +1,5 @@
+id = "kaykit:bench"
+kind = "street.bench"
+# Model units 0.4 x 0.1 x 0.15 (x, y, z, measured on the shipped glb); height = 0.45 m on its height (y) gives scale 4.5, so 1.8 x 0.45 x 0.675 m.
+height = 0.45
+source = "https://github.com/KayKit-Game-Assets/KayKit-City-Builder-Bits-1.0"

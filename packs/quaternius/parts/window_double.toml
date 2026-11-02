@@ -1,0 +1,6 @@
+id = "quaternius:window_double"
+kind = "part.window.casement"
+# Model units 0.3027 x 0.47 x 0.0564 (x, y, z, measured on the shipped glb); height = 1.6 m on its height (y) gives scale 3.4044, so 1.0306 x 1.6 x 0.1921 m.
+# six-pane alternative, not a double-width shopfront.
+height = 1.6
+source = "https://quaternius.com/packs/ultimatetexturedbuildings.html"

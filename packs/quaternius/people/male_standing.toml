@@ -1,0 +1,5 @@
+id = "quaternius:male_standing"
+kind = "person.pedestrian"
+# Model units 1.2395 x 3.8319 x 0.6923 (x, y, z, measured on the shipped glb); height = 1.75 m on its height (y) gives scale 0.4567, so 0.5661 x 1.75 x 0.3162 m.
+height = 1.75
+source = "https://quaternius.com/packs/backgroundposedhumans.html"

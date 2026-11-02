@@ -1,0 +1,7 @@
+id = "polypizza:trashcan"
+kind = "yard.wheelie_bin"
+# Model units 1.2173 x 2.2112 x 1.5913 (x, y, z, measured on the shipped glb); height = 1.1 m on its height (y) gives scale 0.4975, so 0.6056 x 1.1 x 0.7916 m.
+height = 1.1
+licence = "CC0-1.0"
+author = "Quaternius"
+source = "https://poly.pizza/m/XSwahu252t"

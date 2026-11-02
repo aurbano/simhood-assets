@@ -1,0 +1,5 @@
+id = "kenney:light-square"
+kind = "street.lamp"
+# Model units 0.05 x 0.6 x 0.2375 (x, y, z, measured on the shipped glb); height = 8 m on its height (y) gives scale 13.3333, so 0.6667 x 8 x 3.1667 m.
+height = 8.0
+source = "https://kenney.nl/assets/city-kit-roads"

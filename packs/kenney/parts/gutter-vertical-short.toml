@@ -1,0 +1,5 @@
+id = "kenney:gutter-vertical-short"
+kind = "part.wall.drainpipe"
+# Model units 0.3082 x 1 x 0.3082 (x, y, z, measured on the shipped glb); height = 0.4 m on its height (y) gives scale 0.4, so 0.1233 x 0.4 x 0.1233 m.
+height = 0.4
+source = "https://kenney.nl/assets/building-kit"

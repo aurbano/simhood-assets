@@ -1,0 +1,5 @@
+id = "kenney:door-wide-closed_shutter"
+kind = "part.door.shutter"
+# Model units 1.8 x 1.6 x 0 (x, y, z, measured on the shipped glb); height = 3 m on its height (y) gives scale 1.875, so 3.375 x 3 x 0 m.
+height = 3.0
+source = "https://kenney.nl/assets/factory-kit"

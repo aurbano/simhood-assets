@@ -1,0 +1,4 @@
+id = "anker:fence_a"
+kind = "site.fence"
+# Model units 1.1133 x 3.035 x 4.2659 (x, y, z, measured on the shipped glb); height = 2 m on its height (y) gives scale 0.659, so 0.7336 x 2 x 2.8111 m.
+height = 2.0

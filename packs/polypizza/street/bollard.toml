@@ -1,0 +1,7 @@
+id = "polypizza:bollard"
+kind = "street.bollard"
+# Model units 0.6801 x 1.6676 x 0.6976 (x, y, z, measured on the shipped glb); height = 0.9 m on its height (y) gives scale 0.5397, so 0.3671 x 0.9 x 0.3765 m.
+height = 0.9
+licence = "CC-BY-3.0"
+author = "J-Toastie"
+source = "https://poly.pizza/m/JSQJ07PFj2"

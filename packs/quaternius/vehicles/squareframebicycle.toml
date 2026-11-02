@@ -1,0 +1,7 @@
+id = "quaternius:squareframebicycle"
+kind = "bicycle"
+# Model units 1.5046 x 3.1517 x 5.8278 (x, y, z, measured on the shipped glb); length = 1.8 m on its forward -z extent gives scale 0.3089, so 0.4647 x 0.9735 x 1.8 m.
+# rebase negative source min y to ground (loader grounds it); material mapping inferred from the source preview.
+length = 1.8
+forward = "-z"
+source = "https://quaternius.com/packs/publictransport.html"
