@@ -1,0 +1,33 @@
+name: Claim a slot
+description: Tell us you are working on a model so nobody doubles up.
+title: "Claim: "
+labels: ["claim"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Pick a slot on the [board](https://simhood.aurbano.eu/assets/) first, and read [STYLE.md](../blob/main/STYLE.md) and [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+  - type: input
+    id: slot
+    attributes:
+      label: Slot id
+      description: For example `vehicles.panel-van`.
+      placeholder: vehicles.panel-van
+    validations:
+      required: true
+  - type: dropdown
+    id: origin
+    attributes:
+      label: Original or third-party work
+      options:
+        - Original (I will make it)
+        - Third-party (I will adapt a model from somewhere else)
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: Plan
+      description: What you will make or adapt, where it comes from if third-party, and whether any generative AI will be involved.
+    validations:
+      required: true
