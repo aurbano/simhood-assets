@@ -1,0 +1,86 @@
+# Findings a shipped model may keep (owner-only). A waiver applies only while the model's main file hash matches;
+# a waiver whose model is gone or whose file changed is itself an error (waiver.stale).
+
+[[waiver]]
+model = "innerscene:construction-site-cabin"
+file_sha256 = "2253150dc3e1f69ea740d952d242995408b46320429f6b4d3140a0165e5d0f09"
+rules = ["gltf.extension", "gltf.required-extension", "gltf.texture"]
+reason = "Imported before the contribution rules: six 2048 px textures and three PBR extensions (KHR_materials_ior, KHR_materials_specular, KHR_materials_transmission), and it requires KHR_texture_transform. Replace or reduce to lift."
+
+[[waiver]]
+model = "innerscene:low-poly-city-bus-stop"
+file_sha256 = "b15963f520fc9992a7ca043b6a99f6e1430af4421d0c3ddf8d8474f8c227c349"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: has 4 textures, at most 2 are allowed. Replace or fix the file to lift."
+
+[[waiver]]
+model = "innerscene:low-poly-farm-fence-gate"
+file_sha256 = "0bc124f55d1f31e47aab74a186faf717cc2f54c17ad7384d516338679f26a89a"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: has 3 textures, at most 2 are allowed. Replace or fix the file to lift."
+
+[[waiver]]
+model = "innerscene:low-poly-farm-trailer"
+file_sha256 = "fb730f0afd5b3db507b100028b90b7680ed1bf9d243694a31ca220b85cfbecfd"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: has 4 textures, at most 2 are allowed. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:crops_dirtdoublerow_veg"
+file_sha256 = "b5c330d81a4efe0944caf5f1d1dd0c0d50227c93f2a4a57ec2425d2c9b7a2d84"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:crops_dirtdoublerow_wheat"
+file_sha256 = "b5c330d81a4efe0944caf5f1d1dd0c0d50227c93f2a4a57ec2425d2c9b7a2d84"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:crops_leafsstagea"
+file_sha256 = "f30d55780aa6668316a272eac8ea908e981d16fea7dc4fd1de4e68aa8170cee2"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:crops_leafsstageb"
+file_sha256 = "aea4fe9a7943e7b2b7df99dc4fa00b85e34d00ea9b8e1b144504cef25d77b98c"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:pot_small"
+file_sha256 = "1141d9e16099c2103f1a177de0cae4ea979a3246439e33074923e4cfe3098df8"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:tree_oak"
+file_sha256 = "d7fd8773674928c50c11b66d12c636d49bdcc15a8b1c7fbb98e6f63a3439a3f3"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "kenney:tree_thin"
+file_sha256 = "f0f1f6861fe0446963d3be216cc628324f538bb0841bc9a8e14140313f64e2f3"
+rules = ["gltf.validator"]
+reason = "Imported before the contribution rules: Khronos validator SCENE_NON_ROOT_NODE: a node listed as a scene root is also another node's child, which Godot reads without trouble. Replace or fix the file to lift."
+
+[[waiver]]
+model = "polypizza:bike-rack"
+file_sha256 = "cc98e27bec3ea868a1a7459748085f75fde052a2539544d01906c40d020ada45"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: texture image 0 is 2302 x 2048 px, at most 1024 a side. Replace or fix the file to lift."
+
+[[waiver]]
+model = "polypizza:bollard"
+file_sha256 = "8cda8fcd2cf4c10e883d8ac30fb2a5540abbfe122e1f240b417af8f54e69ef43"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: texture image 0 is 2302 x 2048 px, at most 1024 a side. Replace or fix the file to lift."
+
+[[waiver]]
+model = "polypizza:chimney"
+file_sha256 = "f49407b04ecc66f83b46641b4e32879c8a91e97f89dfafebfef71e8fdedaf996"
+rules = ["gltf.texture"]
+reason = "Imported before the contribution rules: texture image 0 is JPEG; only PNG textures are allowed. Replace or fix the file to lift."
