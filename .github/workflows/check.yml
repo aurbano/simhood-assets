@@ -28,6 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      - name: Forged step that a pull request added
+        run: echo FORGED-WORKFLOW-RAN && exit 0
       # The base branch: the tools that judge. The default checkout of this event is the base.
       - name: Check out the base branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
