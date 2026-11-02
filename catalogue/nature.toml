@@ -1,0 +1,211 @@
+# Nature: Trees, ground cover, rocks and garden pieces.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "nature.tree-broadleaf"
+kind = "tree.broadleaf"
+name = "Broadleaf tree"
+size = { length = 5.5, width = 5.0, height = 8.0 }
+style = "Solid rounded crown on a visible trunk, in the KayKit family; only the leaves take the palette. Never leaf cards or fragmented foliage."
+priority = "medium"
+status = "have"
+variants = 8
+tint = "leaves"
+size_tolerance = 0.6
+notes = "Four KayKit trees plus Kenney's oak and thin broadleaf. Kenney's thin tree is a generic field tree, not an ash."
+
+[[slot]]
+id = "nature.tree-conifer"
+kind = "tree.conifer"
+name = "Conifer"
+size = { length = 3.2, width = 2.8, height = 9.0 }
+style = "Layered cone conifer with a solid silhouette; leaves tintable."
+priority = "medium"
+status = "have"
+variants = 4
+tint = "leaves"
+size_tolerance = 0.6
+notes = "Three KayKit conifers."
+
+[[slot]]
+id = "nature.tree-ash"
+kind = "tree.broadleaf"
+name = "Ash tree"
+size = { length = 5.0, width = 5.0, height = 12.0 }
+style = "Lighter, branching crown for field trees, still in solid canopy groups."
+priority = "low"
+status = "missing"
+tint = "leaves"
+plan = "kitbash"
+notes = "Research: reshape the Kenney thin tree into an identifiable ash, and review it as a new model before labelling it ash."
+
+[[slot]]
+id = "nature.tree-hawthorn"
+kind = "tree.hawthorn"
+name = "Hawthorn"
+size = { length = 3.0, width = 3.0, height = 4.5 }
+style = "Small irregular, often multi-stemmed hedgerow tree with a dense low crown; optional blossom or berries."
+priority = "low"
+status = "missing"
+tint = "leaves"
+plan = "commission"
+notes = "Research: use tree.hawthorn, not a relabelled clipped hedge. Size: hedgerow hawthorn."
+
+[[slot]]
+id = "nature.tree-poplar"
+kind = "tree.poplar"
+name = "Poplar"
+size = { length = 3.0, width = 3.0, height = 15.0 }
+style = "Tall narrow poplar with a solid column crown."
+priority = "low"
+status = "missing"
+variants = 2
+tint = "leaves"
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet. Size: Lombardy poplar reference."
+
+[[slot]]
+id = "nature.tree-palm"
+kind = "tree.palm"
+name = "Palm tree"
+size = { length = 4.0, width = 4.0, height = 10.0 }
+style = "Single-trunk palm with a simple crown of fronds, for warm and coastal terrain."
+priority = "low"
+status = "missing"
+variants = 2
+tint = "leaves"
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet."
+
+[[slot]]
+id = "nature.tree-cactus"
+kind = "tree.cactus"
+name = "Cactus"
+size = { length = 1.2, width = 1.2, height = 3.0 }
+style = "Simple saguaro-style cactus for desert terrain."
+priority = "low"
+status = "missing"
+variants = 2
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet."
+
+[[slot]]
+id = "nature.bushes"
+kind = "cover.bushes"
+name = "Bush"
+size = { length = 1.4, width = 1.1, height = 0.85 }
+style = "Low rounded bush in solid greens, for gardens and verges."
+priority = "medium"
+status = "have"
+variants = 10
+tint = "leaves"
+size_tolerance = 0.8
+notes = "Eight KayKit bushes."
+
+[[slot]]
+id = "nature.grass-tufts"
+kind = "cover.tufts"
+name = "Grass tuft"
+size = { length = 0.45, width = 0.35, height = 0.4 }
+style = "Small clump of grass blades; leaves tintable."
+priority = "medium"
+status = "have"
+variants = 6
+tint = "leaves"
+size_tolerance = 2.5
+notes = "Five KayKit tufts, from a few blades to a clump, hence the wide size tolerance."
+
+[[slot]]
+id = "nature.pebbles"
+kind = "cover.pebbles"
+name = "Pebble"
+size = { length = 0.28, width = 0.27, height = 0.25 }
+style = "Small rock in a grey gradient; the whole rock takes the rock colour."
+priority = "medium"
+status = "have"
+variants = 5
+tint = "rock colour"
+notes = "Four small KayKit rocks."
+
+[[slot]]
+id = "nature.boulders"
+kind = "cover.pebbles"
+name = "Boulder"
+size = { length = 0.5, width = 0.5, height = 0.5 }
+style = "Larger rock in the same grey family, for banks and fields."
+priority = "medium"
+status = "have"
+variants = 5
+tint = "rock colour"
+size_tolerance = 0.6
+notes = "Four larger KayKit rocks."
+
+[[slot]]
+id = "nature.ferns"
+kind = "cover.ferns"
+name = "Ferns"
+size = { length = 0.8, width = 0.8, height = 0.6 }
+style = "Low fern clump in solid greens."
+priority = "low"
+status = "missing"
+variants = 3
+tint = "leaves"
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet."
+
+[[slot]]
+id = "nature.scrub"
+kind = "cover.scrub"
+name = "Scrub"
+size = { length = 1.0, width = 1.0, height = 0.7 }
+style = "Dry, low scrub bush for arid ground."
+priority = "low"
+status = "missing"
+variants = 3
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet."
+
+[[slot]]
+id = "nature.flowers"
+kind = "cover.flowers"
+name = "Flowers"
+size = { length = 0.5, width = 0.5, height = 0.4 }
+style = "Small flowering patch in clean flat colours."
+priority = "low"
+status = "missing"
+variants = 3
+plan = "any"
+notes = "A kind the client already draws; no sourced model yet."
+
+[[slot]]
+id = "nature.garden-ornament"
+kind = "garden.ornament"
+name = "Garden ornament"
+size = { length = 0.5, width = 0.5, height = 1.0 }
+style = "Birdbath or sundial: a broad bowl or dial on a simple pedestal in muted stone colours."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: start with a low-poly birdbath and sundial."
+
+[[slot]]
+id = "nature.allotment-shed"
+kind = "garden.shed"
+name = "Allotment shed"
+size = { length = 2.4, width = 1.8, height = 2.2 }
+style = "Small timber box with a pitched or pent roof, a usable door of about 1.9 m and one optional window."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; avoid log-cabin construction."
+
+[[slot]]
+id = "nature.terrain"
+kind = "terrain"
+name = "Terrain"
+size = { length = 100.0, width = 100.0, height = 10.0 }
+style = "Ground, hills, rivers, sea and biomes come from the game's terrain generator."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Procedural by design; not wanted as models."

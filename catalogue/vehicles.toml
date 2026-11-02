@@ -1,0 +1,222 @@
+# Vehicles: Cars, lorries, buses, farm machines and bicycles.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "vehicles.car"
+kind = "car"
+name = "Car"
+size = { length = 4.2, width = 1.8, height = 1.6 }
+style = "Ordinary passenger cars in the chunky KayKit family: sedan, hatchback, estate, taxi, police. Glass, lights and tyres keep their colours; the body takes the palette."
+priority = "low"
+status = "have"
+variants = 8
+tint = "body paint"
+notes = "Six models ship (five KayKit cars and Quaternius NormalCar1). Research: no further passenger cars needed yet; more shapes in the same family (small city car, people carrier) are welcome. Size: mid-size European car."
+
+[[slot]]
+id = "vehicles.box-van"
+kind = "van"
+name = "Box delivery van"
+size = { length = 6.0, width = 2.3, height = 3.0 }
+style = "Luton-style box van with a separate cab and a plain white box body; no livery. Kenney's toy-proportioned van stands in until a proper one exists."
+priority = "high"
+status = "stand-in"
+tint = "body paint"
+notes = "Kenney delivery has toy proportions (chunky wheels, broad body) that tint cannot fix; keep it as a stand-in. Size: 3.5 t Luton box van reference."
+
+[[slot]]
+id = "vehicles.panel-van"
+kind = "van"
+name = "Panel van"
+size = { length = 5.5, width = 2.0, height = 2.5 }
+style = "Plain-bodied panel van the size of a Ford Transit, no livery, sliding side door; body tintable."
+priority = "high"
+status = "missing"
+tint = "body paint"
+plan = "commission"
+notes = "Research: commission in the KayKit vehicle language; do not squeeze or enlarge Kenney's toy van. Size: Ford Transit long-wheelbase reference."
+
+[[slot]]
+id = "vehicles.rigid-lorry"
+kind = "truck.rigid"
+name = "7.5 tonne rigid lorry"
+size = { length = 7.5, width = 2.4, height = 3.4 }
+style = "UK cab-over cab and chassis with a correctly proportioned box body, the base for the other specialist lorries; body tintable."
+priority = "high"
+status = "missing"
+tint = "body paint"
+plan = "commission"
+notes = "Research: reuse one cab and chassis across the rigid, mixer, crane and bin lorries so they look like one fleet. Size: 7.5 t box lorry reference."
+
+[[slot]]
+id = "vehicles.artic-lorry"
+kind = "truck.artic"
+name = "Articulated lorry"
+size = { length = 16.5, width = 2.55, height = 4.0 }
+style = "Cab plus 13.6 m box trailer, UK tractor unit; one model with the trailer attached."
+priority = "high"
+status = "missing"
+tint = "body paint"
+plan = "kitbash"
+notes = "Research: reduce Rgsdev's 3,300-triangle cab-and-trailer combination to under 3,000 triangles for a 10 m urban artic; a full 16.5 m version needs a longer trailer. Size: UK 44 t artic reference."
+
+[[slot]]
+id = "vehicles.flatbed"
+kind = "truck.flatbed"
+name = "Flatbed lorry"
+size = { length = 6.0, width = 2.4, height = 2.4 }
+style = "Plain unloaded flatbed with a low cab, for building materials; Kenney's toy-proportioned chassis stands in."
+priority = "medium"
+status = "stand-in"
+notes = "Stand-in chassis for a light builders' delivery vehicle; toy proportions. Size: 3.5 t dropside reference."
+
+[[slot]]
+id = "vehicles.flatbed-loaded"
+kind = "truck.flatbed"
+name = "Flatbed with building materials"
+size = { length = 6.0, width = 2.4, height = 3.0 }
+style = "A flatbed carrying timber and brick packs, as one model under the vehicle budget."
+priority = "low"
+status = "missing"
+plan = "kitbash"
+notes = "Research: add a low-triangle timber and brick load to the selected Kenney flatbed; the whole vehicle must stay under 3,000 triangles."
+
+[[slot]]
+id = "vehicles.tipper"
+kind = "truck.tipper"
+name = "Tipper lorry"
+size = { length = 8.0, width = 2.4, height = 3.0 }
+style = "Construction tipper with a tilting hopper and a yellow cab; a simple Poly Pizza model stands in."
+priority = "medium"
+status = "stand-in"
+notes = "CC-BY stand-in (Crachboss32); vivid yellow, needs a tint key before it goes live. Size: 8 m rigid tipper reference."
+
+[[slot]]
+id = "vehicles.mixer-truck"
+kind = "truck.mixer"
+name = "Concrete mixer lorry"
+size = { length = 8.5, width = 2.5, height = 3.8 }
+style = "Drum mixer on a rigid chassis with a rear chute; drum and chassis separate colours."
+priority = "medium"
+status = "missing"
+plan = "kitbash"
+notes = "Research: rebuild the compact 5.8 m role, or put a drum and chute on the commissioned rigid chassis. Size: 8 m, 6 m3 mixer reference."
+
+[[slot]]
+id = "vehicles.crane-truck"
+kind = "truck.crane"
+name = "Crane lorry"
+size = { length = 9.5, width = 2.5, height = 3.8 }
+style = "Small lorry-mounted knuckle-boom crane with stabilisers, folded for travel. Not a tower crane."
+priority = "low"
+status = "missing"
+plan = "commission"
+notes = "Research: folded knuckle-boom on the common flatbed chassis. Size: 18 t lorry loader reference."
+
+[[slot]]
+id = "vehicles.bin-lorry"
+kind = "truck.bin"
+name = "Bin lorry"
+size = { length = 10.0, width = 2.5, height = 3.5 }
+style = "UK rear-loading refuse lorry with a hopper at the back and a tall body, for the waste depot; body tintable."
+priority = "high"
+status = "missing"
+tint = "body paint"
+plan = "commission"
+notes = "Research: a compact 5.5 m lorry can be made by kitbashing Kenney's refuse truck, but a proper long rear-loader is commissioned for standard service. Size: 26 t refuse collection vehicle."
+
+[[slot]]
+id = "vehicles.tractor"
+kind = "tractor"
+name = "Tractor"
+size = { length = 4.5, width = 2.4, height = 2.8 }
+style = "Field tractor with big rear tyres and a cab; Kenney's toy-proportioned tractor stands in."
+priority = "medium"
+status = "stand-in"
+notes = "Kenney car-kit proportions. Size: 100 hp farm tractor reference."
+
+[[slot]]
+id = "vehicles.farm-trailer"
+kind = "tractor.trailer"
+name = "Farm trailer"
+size = { length = 4.0, width = 2.1, height = 1.4 }
+style = "Single-axle tipping farm trailer with timber sides, drawn towed by a tractor."
+priority = "medium"
+status = "stand-in"
+notes = "A towed attachment, never a freight vehicle that moves on its own; it needs a hitch point. Innerscene model stands in. Size: 8 t farm trailer reference."
+
+[[slot]]
+id = "vehicles.combine"
+kind = "combine"
+name = "Combine harvester"
+size = { length = 9.0, width = 3.5, height = 4.0 }
+style = "Harvesting machine with a header at the front, cab above and grain tank behind."
+priority = "low"
+status = "missing"
+plan = "commission"
+notes = "Research: skip until a harvest scene needs it; the trailer covers the farm request for now. Size: mid-size combine harvester reference."
+
+[[slot]]
+id = "vehicles.midibus"
+kind = "bus"
+name = "Midibus"
+size = { length = 8.5, width = 2.5, height = 3.0 }
+style = "Short two-axle single-deck bus for local routes, big windows, a door at the front."
+priority = "medium"
+status = "stand-in"
+tint = "body paint"
+notes = "Quevedo's bus is vivid lime and needs its body recoloured before it goes live. Size: 8.5 m midibus reference."
+
+[[slot]]
+id = "vehicles.bus-full"
+kind = "bus"
+name = "Full-size bus"
+size = { length = 12.0, width = 2.55, height = 3.0 }
+style = "Single-deck 12 m city bus with a low floor and doors at front and centre; body tintable."
+priority = "medium"
+status = "missing"
+tint = "body paint"
+plan = "commission"
+notes = "Research: a proper 12 m body with suitable width and height; the Quaternius bus is too short and broad. Size: 12 m single-deck bus."
+
+[[slot]]
+id = "vehicles.coach-compact"
+kind = "coach"
+name = "Compact coach"
+size = { length = 9.2, width = 2.5, height = 3.2 }
+style = "Short coach with a raised cabin and dark glass, for the gateway shuttle."
+priority = "medium"
+status = "stand-in"
+notes = "Rgsdev's blue coach stands in. Size: 9 m midi-coach reference."
+
+[[slot]]
+id = "vehicles.coach-full"
+kind = "coach"
+name = "Full-size coach"
+size = { length = 12.0, width = 2.55, height = 3.6 }
+style = "Long-distance 12 m coach, two axles plus tag axle, tall body with dark windows."
+priority = "medium"
+status = "missing"
+plan = "commission"
+notes = "Research: commission a 12 to 13 m coach rather than enlarging the compact one. Size: 12 m coach."
+
+[[slot]]
+id = "vehicles.hearse"
+kind = "hearse"
+name = "Hearse"
+size = { length = 5.3, width = 1.9, height = 1.6 }
+style = "Long dark estate-style car with a glass-sided rear compartment, the same chunky proportions as the KayKit cars."
+priority = "medium"
+status = "missing"
+plan = "kitbash"
+notes = "Research: remodel the KayKit estate's rear body and glazing, keeping its wheels. Size: UK hearse (Mercedes E-class conversion)."
+
+[[slot]]
+id = "vehicles.bicycle"
+kind = "bicycle"
+name = "Bicycle"
+size = { length = 1.8, width = 0.55, height = 1.0 }
+style = "Simple city bicycle: frame, two wheels, bars and saddle in flat colours; no rider."
+priority = "low"
+status = "have"
+notes = "Quaternius square-frame bicycle. No rider or pedalling animation; see the cyclist slot."

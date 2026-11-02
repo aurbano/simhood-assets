@@ -1,0 +1,106 @@
+# Construction: Building-site equipment and materials.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "construction.scaffold"
+kind = "site.scaffold"
+name = "Scaffolding section"
+size = { length = 3.5, width = 1.4, height = 3.0 }
+style = "One bay of tube-and-board scaffolding with a lift and ladder, repeatable along a wall."
+priority = "medium"
+status = "have"
+notes = "Anker scaffolding_a."
+
+[[slot]]
+id = "construction.tower-crane"
+kind = "site.crane"
+name = "Tower crane"
+size = { length = 23.0, width = 13.5, height = 30.0 }
+style = "Yellow lattice tower crane standing on the ground, with a jib and counter-jib."
+priority = "medium"
+status = "stand-in"
+max_triangles = 2500
+notes = "Majadroid's crane (2,234 triangles) stands in; the research counted it over the prop budget and flagged it. Anker's 14,302-triangle crane was excluded. The cap keeps a replacement near today's count."
+
+[[slot]]
+id = "construction.site-cabin"
+kind = "site.cabin"
+name = "Site cabin"
+size = { length = 6.5, width = 2.9, height = 2.7 }
+style = "Single portable site office or welfare cabin, off-white panels with blue details."
+priority = "medium"
+status = "stand-in"
+notes = "Innerscene cabin stands in. Size: 20 ft jackleg cabin."
+
+[[slot]]
+id = "construction.fence-section"
+kind = "site.fence"
+name = "Site fence section"
+size = { length = 2.8, width = 0.75, height = 2.0 }
+style = "Heras-style temporary fence panel on feet."
+priority = "medium"
+status = "have"
+notes = "Anker fence_a; a shorter section than the standard panel."
+
+[[slot]]
+id = "construction.heras-panel"
+kind = "site.fence"
+name = "Standard Heras panel"
+size = { length = 3.5, width = 0.1, height = 2.0 }
+style = "Standard 3.5 by 2 m temporary fence panel with simplified mesh, in a block-and-clamp row."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code if the exact standard width is needed."
+
+[[slot]]
+id = "construction.cement-mixer"
+kind = "site.mixer"
+name = "Cement mixer"
+size = { length = 1.2, width = 0.9, height = 1.4 }
+style = "Small portable mixer with a tilting drum on a frame and two wheels."
+priority = "medium"
+status = "have"
+notes = "Anker cement_mixer."
+
+[[slot]]
+id = "construction.brick-pile"
+kind = "site.bricks"
+name = "Brick pile"
+size = { length = 1.2, width = 1.0, height = 1.0 }
+style = "Clean red or buff stacked bricks, one full and one partial stockpile."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code."
+
+[[slot]]
+id = "construction.sand-pile"
+kind = "site.sand"
+name = "Sand pile"
+size = { length = 3.0, width = 3.0, height = 1.2 }
+style = "Broad low faceted mound of sand; not rocks or sandbags."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code."
+
+[[slot]]
+id = "construction.timber-stack"
+kind = "site.timber"
+name = "Timber stack"
+size = { length = 2.4, width = 1.4, height = 0.36 }
+style = "Stack of rough planks."
+priority = "medium"
+status = "have"
+notes = "Kenney Survival Kit resource-planks."
+
+[[slot]]
+id = "construction.portaloo"
+kind = "site.portaloo"
+name = "Portable toilet"
+size = { length = 1.4, width = 1.2, height = 2.3 }
+style = "Single portable toilet cabin with a door and roof vent."
+priority = "low"
+status = "have"
+notes = "Anker toilet_a. Lilac accents need a tint key before it goes live."

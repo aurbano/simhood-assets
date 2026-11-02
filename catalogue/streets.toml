@@ -1,0 +1,243 @@
+# Streets: Street furniture, signs and the procedural roads.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "streets.lamp-arterial"
+kind = "street.lamp"
+name = "Street lamp, arterial"
+size = { length = 3.2, width = 0.7, height = 8.0 }
+style = "Tall single-arm lamp for big roads, with a long outreach arm over the carriageway."
+priority = "medium"
+status = "have"
+notes = "Kenney City Kit Roads light-square at 8 m. One of three lamp styles chosen by street class."
+
+[[slot]]
+id = "streets.lamp-collector"
+kind = "street.lamp"
+name = "Street lamp, collector"
+size = { length = 1.7, width = 0.45, height = 6.0 }
+style = "Default everyday street lamp with a softly curved arm and a restrained grey pole."
+priority = "medium"
+status = "have"
+notes = "KayKit City Builder Bits streetlight, the core pick. 176 triangles."
+
+[[slot]]
+id = "streets.lamp-local"
+kind = "street.lamp"
+name = "Street lamp, local"
+size = { length = 0.55, width = 0.55, height = 4.5 }
+style = "Single green lantern on a short post for older, quieter streets."
+priority = "medium"
+status = "have"
+notes = "Quaternius Modular Street Streetlight_Single."
+
+[[slot]]
+id = "streets.traffic-light"
+kind = "street.traffic_light"
+name = "Traffic light"
+size = { length = 0.5, width = 0.35, height = 3.2 }
+style = "Roadside pole with a vertical signal head; red, amber and green kept as separate colours."
+priority = "medium"
+status = "have"
+notes = "Quaternius Modular Street TrafficLight. No hanging or overhead signals (US vocabulary)."
+
+[[slot]]
+id = "streets.bus-shelter"
+kind = "street.bus_stop"
+name = "Bus shelter"
+size = { length = 3.7, width = 1.6, height = 2.6 }
+style = "Clean blue canopy and back panel with a timber bench inside."
+priority = "medium"
+status = "stand-in"
+notes = "Innerscene bus stop stands in. Size: 3.6 m UK roadside shelter."
+
+[[slot]]
+id = "streets.bus-stop-flag"
+kind = "street.bus_stop"
+name = "Bus stop flag"
+size = { length = 0.4, width = 0.1, height = 2.5 }
+style = "Coloured stop sign on a thin pole; generic transit look, not an exact UK operator sign."
+priority = "medium"
+status = "stand-in"
+notes = "dook's bus stop sign (CC-BY) stands in."
+
+[[slot]]
+id = "streets.bench"
+kind = "street.bench"
+name = "Bench"
+size = { length = 1.8, width = 0.7, height = 0.45 }
+style = "Plain backless timber bench on dark supports."
+priority = "low"
+status = "have"
+notes = "KayKit bench, the core pick; 44 triangles."
+
+[[slot]]
+id = "streets.bench-backed"
+kind = "street.bench"
+name = "Backed public bench"
+size = { length = 1.8, width = 0.7, height = 0.9 }
+style = "Public bench with a restrained timber back, in the same style as the backless bench."
+priority = "low"
+status = "missing"
+plan = "kitbash"
+notes = "Research: add a back to the KayKit bench, keeping the 0.45 m seat height."
+
+[[slot]]
+id = "streets.bollard"
+kind = "street.bollard"
+name = "Bollard"
+size = { length = 0.4, width = 0.4, height = 0.9 }
+style = "Plain dark pavement bollard with a reflective amber band."
+priority = "medium"
+status = "stand-in"
+notes = "J-Toastie's bollard (CC-BY) stands in. For pedestrian protection, not a traffic-island marker."
+
+[[slot]]
+id = "streets.litter-bin-private"
+kind = "street.litter_bin"
+name = "Pedal bin"
+size = { length = 0.45, width = 0.4, height = 0.8 }
+style = "Small lidded pedal bin for sheltered or private outdoor spaces."
+priority = "low"
+status = "have"
+notes = "Kenney Furniture Kit trashcan. Not a public pavement litter bin."
+
+[[slot]]
+id = "streets.litter-bin-public"
+kind = "street.litter_bin"
+name = "Public litter bin"
+size = { length = 0.4, width = 0.4, height = 0.9 }
+style = "Simple cylindrical or rectangular outdoor bin with a visible litter opening."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code. Size: typical UK street litter bin."
+
+[[slot]]
+id = "streets.phone-box-generic"
+kind = "street.phone_box"
+name = "Phone box, generic"
+size = { length = 1.2, width = 1.2, height = 2.4 }
+style = "Plain telephone kiosk with a dark frame and glazing; a generic stand-in for the red kiosk."
+priority = "low"
+status = "stand-in"
+notes = "Zsky's phone booth (CC-BY) stands in. Not a K6; recolouring it red would not make it one."
+
+[[slot]]
+id = "streets.phone-box-k6"
+kind = "street.phone_box"
+name = "Red K6 phone box"
+size = { length = 1.0, width = 1.0, height = 2.5 }
+style = "Red K6 kiosk with a domed roof, glazing bars and a telephone panel."
+priority = "medium"
+status = "missing"
+plan = "commission"
+notes = "Research: one clean low-poly K6 with a recognisable roof and glazing bars. Size: Gilbert Scott K6 kiosk."
+
+[[slot]]
+id = "streets.sign-stop"
+kind = "street.sign"
+name = "Stop sign"
+size = { length = 0.6, width = 0.1, height = 2.4 }
+style = "Red octagon STOP sign on a pole, for stop-controlled junctions only."
+priority = "low"
+status = "have"
+notes = "Quaternius Modular Street Sign_Stop."
+
+[[slot]]
+id = "streets.road-signs"
+kind = "street.sign"
+name = "UK road signs"
+size = { length = 0.6, width = 0.1, height = 2.4 }
+style = "A set of UK sign plates on poles: give way, speed limits, warning triangles, directions."
+priority = "medium"
+status = "procedural"
+variants = 6
+plan = "procedural"
+notes = "Research: draw plate shapes and a small face atlas in code. Size: typical post-mounted plate."
+
+[[slot]]
+id = "streets.cycle-rack"
+kind = "street.cycle_rack"
+name = "Cycle rack"
+size = { length = 2.4, width = 1.7, height = 0.9 }
+style = "Multi-rail metal rack for several cycles at once, for plazas and stations."
+priority = "low"
+status = "stand-in"
+notes = "J-Toastie's bike rack (CC-BY) stands in. Not a covered shelter."
+
+[[slot]]
+id = "streets.sheffield-hoop"
+kind = "street.cycle_rack"
+name = "Sheffield cycle hoop"
+size = { length = 0.8, width = 0.05, height = 0.8 }
+style = "Inverted-U steel tube set into the pavement, repeated at sensible spacing."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code. Size: standard Sheffield stand."
+
+[[slot]]
+id = "streets.planter-bed"
+kind = "street.planter"
+name = "Planter bed"
+size = { length = 1.5, width = 1.1, height = 0.65 }
+style = "Low rectangular edging with solid shrub masses."
+priority = "medium"
+status = "have"
+tint = "foliage"
+notes = "Kenney City Kit Suburban planter; the height includes the plants."
+
+[[slot]]
+id = "streets.pot"
+kind = "street.planter"
+name = "Plant pot"
+size = { length = 0.55, width = 0.47, height = 0.45 }
+style = "Compact faceted pot for a doorway or garden edge."
+priority = "low"
+status = "have"
+notes = "Kenney Nature Kit pot_small."
+
+[[slot]]
+id = "streets.post-box"
+kind = "street.post_box"
+name = "Post box"
+size = { length = 0.5, width = 0.5, height = 1.6 }
+style = "Red cylindrical UK pillar box with a cap, slot and dark base."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code. Size: Royal Mail pillar box."
+
+[[slot]]
+id = "streets.belisha-beacon"
+kind = "street.beacon"
+name = "Belisha beacon"
+size = { length = 0.3, width = 0.3, height = 3.0 }
+style = "Black and white striped pole with an amber globe and a simple base, for zebra crossings."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code, with the globe, dark and light bands as separate colours."
+
+[[slot]]
+id = "streets.road-section"
+kind = "road"
+name = "Road section"
+size = { length = 20.0, width = 7.0, height = 0.2 }
+style = "Roads, junctions and pavements are built by the game's street generator."
+priority = "high"
+status = "procedural"
+plan = "procedural"
+notes = "Procedural by design; not wanted as models."
+
+[[slot]]
+id = "streets.bridge"
+kind = "bridge"
+name = "Bridge"
+size = { length = 30.0, width = 8.0, height = 6.0 }
+style = "Road bridges over narrow water are generated by the town builder."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Procedural by design; not wanted as models."

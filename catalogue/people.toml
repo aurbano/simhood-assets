@@ -1,0 +1,46 @@
+# People: Pedestrians and cyclists.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "people.pedestrian-walking"
+kind = "person.pedestrian"
+name = "Pedestrian, walking"
+size = { length = 0.65, width = 0.5, height = 1.75 }
+style = "Adult walking figure in a static stride, flat colours with clothing and skin separate; adults of the same family only."
+priority = "medium"
+status = "have"
+variants = 6
+notes = "Quaternius Background Posed Humans (static poses, not a walk cycle). Never mix with Kenney mini or blocky people. Size: 1.75 m adult."
+
+[[slot]]
+id = "people.pedestrian-standing"
+kind = "person.pedestrian"
+name = "Pedestrian, standing"
+size = { length = 0.6, width = 0.4, height = 1.75 }
+style = "Adult standing or looking up, for waiting at stops and plazas."
+priority = "medium"
+status = "have"
+variants = 4
+notes = "Quaternius Background Posed Humans."
+
+[[slot]]
+id = "people.cyclist"
+kind = "person.cyclist"
+name = "Cyclist with rider"
+size = { length = 1.8, width = 0.6, height = 1.75 }
+style = "Normal-proportioned rider on a bicycle in a cycling pose, hands on the bars and feet on the pedals; clothing tintable."
+priority = "medium"
+status = "missing"
+plan = "commission"
+notes = "Research: no rider-on-bicycle asset found; the complete assembly counts against the vehicle budget."
+
+[[slot]]
+id = "people.pedestrian-animated"
+kind = "person.pedestrian"
+name = "Pedestrian with walk cycle"
+size = { length = 0.65, width = 0.5, height = 1.75 }
+style = "A pedestrian that can walk: a rigged figure with a walk animation, in the style of the static pedestrians."
+priority = "low"
+status = "missing"
+plan = "commission"
+notes = "Research: only needed if the client wants articulated walking rather than translated static poses."

@@ -1,0 +1,175 @@
+# Industry and yards: Factory pieces and yard props.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "industry.sawtooth"
+kind = "industry.sawtooth"
+name = "Sawtooth roof"
+size = { length = 20.0, width = 12.0, height = 6.0 }
+style = "Repeated north-light roof teeth with glazing on the steep face, over a factory footprint."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: repeat the teeth procedurally with roughly 1.5 m tooth rise; the main building mass is procedural."
+
+[[slot]]
+id = "industry.chimney"
+kind = "industry.chimney"
+name = "Factory chimney"
+size = { length = 3.0, width = 3.0, height = 12.0 }
+style = "Tall brick-coloured factory stack with a plain top, seen from far away."
+priority = "medium"
+status = "have"
+notes = "Kenney City Kit Industrial chimney-medium at 12 m. Poly Pizza's chimney is the domestic one."
+
+[[slot]]
+id = "industry.silo"
+kind = "industry.silo"
+name = "Silo or hopper"
+size = { length = 4.5, width = 4.5, height = 4.0 }
+style = "Squat storage tank or round grain hopper in metal, for factories and yards."
+priority = "medium"
+status = "have"
+variants = 3
+tint = "body paint"
+size_tolerance = 0.6
+notes = "Two Kenney models ship (tank and hopper); taller grain silos are welcome."
+
+[[slot]]
+id = "industry.pipes"
+kind = "industry.pipes"
+name = "Pipework"
+size = { length = 0.6, width = 0.5, height = 0.4 }
+style = "Large industrial pipe pieces: straight, bend and valve, for building up pipe runs."
+priority = "low"
+status = "have"
+variants = 3
+size_tolerance = 0.9
+notes = "Kenney Factory Kit pipes at 0.4 times source scale."
+
+[[slot]]
+id = "industry.dock"
+kind = "industry.dock"
+name = "Loading dock"
+size = { length = 8.0, width = 4.0, height = 1.2 }
+style = "Raised loading platform about 1.2 m above the yard with bumpers and a dock leveller, matching the loading-bay door."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: a door is not a dock; draw the platform in code."
+
+[[slot]]
+id = "industry.pallet"
+kind = "yard.pallet"
+name = "Pallet"
+size = { length = 1.2, width = 1.0, height = 0.15 }
+style = "Timber pallet, near square, in the Anker low-poly style."
+priority = "medium"
+status = "have"
+notes = "Size: UK standard 1200 x 1000 mm pallet."
+
+[[slot]]
+id = "industry.pallet-stack"
+kind = "yard.pallet"
+name = "Pallet stack"
+size = { length = 1.2, width = 1.0, height = 0.6 }
+style = "Simple four-pallet stack, about 0.6 m high, for yards and warehouses."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: keep the whole stack under 1,500 triangles."
+
+[[slot]]
+id = "industry.crate"
+kind = "yard.crate"
+name = "Crate"
+size = { length = 0.6, width = 0.6, height = 0.6 }
+style = "Braced timber shipping crate."
+priority = "medium"
+status = "stand-in"
+notes = "Quaternius crate from Poly Pizza stands in."
+
+[[slot]]
+id = "industry.container"
+kind = "yard.container"
+name = "Shipping container"
+size = { length = 6.1, width = 2.5, height = 2.6 }
+style = "Twenty-foot steel shipping container with corrugated sides and doors at one end; body tintable."
+priority = "medium"
+status = "have"
+tint = "body paint"
+notes = "Kenney City Kit Industrial container. Vivid orange; needs a tint key before it goes live. Size: ISO 20 ft container."
+
+[[slot]]
+id = "industry.oil-drum"
+kind = "yard.drum"
+name = "Oil drum"
+size = { length = 0.6, width = 0.6, height = 0.88 }
+style = "Steel drum with two raised rings, in a muted colour."
+priority = "low"
+status = "have"
+notes = "Anker barrel. Size: 200 litre drum."
+
+[[slot]]
+id = "industry.forklift"
+kind = "yard.forklift"
+name = "Forklift"
+size = { length = 3.0, width = 1.2, height = 2.1 }
+style = "Warehouse forklift with a mast and forks, orange and black."
+priority = "medium"
+status = "stand-in"
+notes = "KolosStudios forklift from Poly Pizza (CC-BY) stands in; forward direction was inferred from the forks. Size: 2.5 t forklift."
+
+[[slot]]
+id = "industry.skip"
+kind = "yard.skip"
+name = "Skip"
+size = { length = 3.5, width = 1.7, height = 1.3 }
+style = "Open builders' skip with sloped ends, in a flat colour."
+priority = "medium"
+status = "have"
+notes = "Anker skip. Size: 8 yd builders' skip."
+
+[[slot]]
+id = "industry.wheelie-bin"
+kind = "yard.wheelie_bin"
+name = "Wheelie bin"
+size = { length = 0.75, width = 0.6, height = 1.1 }
+style = "Two-wheeled domestic or commercial bin with a hinged lid; body tintable."
+priority = "medium"
+status = "stand-in"
+tint = "body paint"
+notes = "Quaternius trashcan from Poly Pizza stands in. Size: 240 litre wheelie bin."
+
+[[slot]]
+id = "industry.chain-link-fence"
+kind = "yard.fence"
+name = "Chain-link fence"
+size = { length = 2.5, width = 0.1, height = 2.0 }
+style = "Permanent chain-link fence panel, about 2 m high, with posts and rails and a restrained mesh."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; avoid modelling every wire."
+
+[[slot]]
+id = "industry.chain-link-gate"
+kind = "yard.gate"
+name = "Chain-link gate"
+size = { length = 4.0, width = 0.1, height = 2.0 }
+style = "Yard gate in the same style as the fence, with latch and hinge posts."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: matches the fence vocabulary; do not borrow wooden farm gates."
+
+[[slot]]
+id = "industry.factory-building"
+kind = "building"
+name = "Factory building"
+size = { length = 30.0, width = 20.0, height = 8.0 }
+style = "Whole factory sheds are built by the game from the parts on this page."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Procedural by design. Please send parts, not whole factories."

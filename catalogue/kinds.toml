@@ -1,0 +1,555 @@
+# Every kind a slot or a model may use, with its triangle-budget class.
+# `drawn` is true only for the kinds the game client draws from asset packs today.
+
+[classes]
+prop = 1500
+vehicle = 3000
+large = 6000
+
+[[kind]]
+id = "car"
+class = "vehicle"
+drawn = true
+name = "Car"
+
+[[kind]]
+id = "truck"
+class = "vehicle"
+drawn = true
+name = "Lorry (generic)"
+
+[[kind]]
+id = "van"
+class = "vehicle"
+name = "Van"
+
+[[kind]]
+id = "truck.rigid"
+class = "vehicle"
+name = "Rigid lorry"
+
+[[kind]]
+id = "truck.artic"
+class = "vehicle"
+name = "Articulated lorry"
+
+[[kind]]
+id = "truck.flatbed"
+class = "vehicle"
+name = "Flatbed lorry"
+
+[[kind]]
+id = "truck.tipper"
+class = "vehicle"
+name = "Tipper lorry"
+
+[[kind]]
+id = "truck.mixer"
+class = "vehicle"
+name = "Concrete mixer lorry"
+
+[[kind]]
+id = "truck.crane"
+class = "vehicle"
+name = "Crane lorry"
+
+[[kind]]
+id = "truck.bin"
+class = "vehicle"
+name = "Bin lorry"
+
+[[kind]]
+id = "tractor"
+class = "vehicle"
+name = "Tractor"
+
+[[kind]]
+id = "tractor.trailer"
+class = "vehicle"
+name = "Farm trailer"
+
+[[kind]]
+id = "combine"
+class = "vehicle"
+name = "Combine harvester"
+
+[[kind]]
+id = "bus"
+class = "vehicle"
+name = "Bus"
+
+[[kind]]
+id = "coach"
+class = "vehicle"
+name = "Coach"
+
+[[kind]]
+id = "hearse"
+class = "vehicle"
+name = "Hearse"
+
+[[kind]]
+id = "bicycle"
+class = "vehicle"
+name = "Bicycle"
+
+[[kind]]
+id = "part.window.sash"
+class = "prop"
+name = "Sash window"
+
+[[kind]]
+id = "part.window.casement"
+class = "prop"
+name = "Casement window"
+
+[[kind]]
+id = "part.window.shopfront"
+class = "prop"
+name = "Shopfront glazing"
+
+[[kind]]
+id = "part.window.curtain_wall"
+class = "prop"
+name = "Curtain-wall panel"
+
+[[kind]]
+id = "part.window.strip"
+class = "prop"
+name = "Strip window"
+
+[[kind]]
+id = "part.door.front"
+class = "prop"
+name = "Front door"
+
+[[kind]]
+id = "part.door.shop"
+class = "prop"
+name = "Shop door"
+
+[[kind]]
+id = "part.door.shutter"
+class = "prop"
+name = "Roller shutter"
+
+[[kind]]
+id = "part.door.loading"
+class = "prop"
+name = "Loading-bay door"
+
+[[kind]]
+id = "part.door.barn"
+class = "prop"
+name = "Barn door"
+
+[[kind]]
+id = "part.door.step"
+class = "prop"
+name = "Doorstep"
+
+[[kind]]
+id = "part.roof.chimney"
+class = "prop"
+name = "Chimney stack"
+
+[[kind]]
+id = "part.roof.dormer"
+class = "prop"
+name = "Dormer"
+
+[[kind]]
+id = "part.roof.vent"
+class = "prop"
+name = "Roof vent"
+
+[[kind]]
+id = "part.roof.hvac"
+class = "prop"
+name = "Rooftop air-conditioning unit"
+
+[[kind]]
+id = "part.roof.dish"
+class = "prop"
+name = "Satellite dish"
+
+[[kind]]
+id = "part.roof.solar"
+class = "prop"
+name = "Solar panel"
+
+[[kind]]
+id = "part.wall.drainpipe"
+class = "prop"
+name = "Drainpipe"
+
+[[kind]]
+id = "part.wall.ac"
+class = "prop"
+name = "Wall air-conditioning unit"
+
+[[kind]]
+id = "part.wall.sign_bracket"
+class = "prop"
+name = "Sign bracket"
+
+[[kind]]
+id = "part.wall.awning"
+class = "prop"
+name = "Awning"
+
+[[kind]]
+id = "part.wall.balcony"
+class = "prop"
+name = "Balcony"
+
+[[kind]]
+id = "industry.sawtooth"
+class = "large"
+name = "Sawtooth roof"
+
+[[kind]]
+id = "industry.chimney"
+class = "large"
+name = "Factory chimney"
+
+[[kind]]
+id = "industry.silo"
+class = "large"
+name = "Silo or hopper"
+
+[[kind]]
+id = "industry.pipes"
+class = "prop"
+name = "Pipework"
+
+[[kind]]
+id = "industry.dock"
+class = "large"
+name = "Loading dock"
+
+[[kind]]
+id = "yard.pallet"
+class = "prop"
+name = "Pallet"
+
+[[kind]]
+id = "yard.crate"
+class = "prop"
+name = "Crate"
+
+[[kind]]
+id = "yard.container"
+class = "prop"
+name = "Shipping container"
+
+[[kind]]
+id = "yard.drum"
+class = "prop"
+name = "Oil drum"
+
+[[kind]]
+id = "yard.skip"
+class = "prop"
+name = "Skip"
+
+[[kind]]
+id = "yard.wheelie_bin"
+class = "prop"
+name = "Wheelie bin"
+
+[[kind]]
+id = "yard.fence"
+class = "prop"
+name = "Yard fence"
+
+[[kind]]
+id = "yard.gate"
+class = "prop"
+name = "Yard gate"
+
+[[kind]]
+id = "yard.forklift"
+class = "vehicle"
+name = "Forklift"
+
+[[kind]]
+id = "farm.barn"
+class = "large"
+name = "Barn"
+
+[[kind]]
+id = "farm.hay_shed"
+class = "large"
+name = "Hay shed"
+
+[[kind]]
+id = "farm.polytunnel"
+class = "large"
+name = "Polytunnel"
+
+[[kind]]
+id = "farm.bale_round"
+class = "prop"
+name = "Round bale"
+
+[[kind]]
+id = "farm.bale_square"
+class = "prop"
+name = "Square bale"
+
+[[kind]]
+id = "farm.trough"
+class = "prop"
+name = "Water trough"
+
+[[kind]]
+id = "farm.crop_wheat"
+class = "prop"
+name = "Wheat crop"
+
+[[kind]]
+id = "farm.crop_veg"
+class = "prop"
+name = "Vegetable crop"
+
+[[kind]]
+id = "farm.hedge"
+class = "prop"
+name = "Hedge"
+
+[[kind]]
+id = "farm.gate"
+class = "prop"
+name = "Field gate"
+
+[[kind]]
+id = "farm.wall"
+class = "prop"
+name = "Dry-stone wall"
+
+[[kind]]
+id = "animal.sheep"
+class = "prop"
+name = "Sheep"
+
+[[kind]]
+id = "animal.cow"
+class = "prop"
+name = "Cow"
+
+[[kind]]
+id = "site.scaffold"
+class = "large"
+name = "Scaffolding"
+
+[[kind]]
+id = "site.crane"
+class = "large"
+name = "Tower crane"
+
+[[kind]]
+id = "site.cabin"
+class = "large"
+name = "Site cabin"
+
+[[kind]]
+id = "site.fence"
+class = "prop"
+name = "Site fence"
+
+[[kind]]
+id = "site.mixer"
+class = "prop"
+name = "Cement mixer"
+
+[[kind]]
+id = "site.bricks"
+class = "prop"
+name = "Brick pile"
+
+[[kind]]
+id = "site.sand"
+class = "prop"
+name = "Sand pile"
+
+[[kind]]
+id = "site.timber"
+class = "prop"
+name = "Timber stack"
+
+[[kind]]
+id = "site.portaloo"
+class = "prop"
+name = "Portable toilet"
+
+[[kind]]
+id = "street.lamp"
+class = "prop"
+name = "Street lamp"
+
+[[kind]]
+id = "street.traffic_light"
+class = "prop"
+name = "Traffic light"
+
+[[kind]]
+id = "street.bench"
+class = "prop"
+name = "Bench"
+
+[[kind]]
+id = "street.bollard"
+class = "prop"
+name = "Bollard"
+
+[[kind]]
+id = "street.litter_bin"
+class = "prop"
+name = "Litter bin"
+
+[[kind]]
+id = "street.post_box"
+class = "prop"
+name = "Post box"
+
+[[kind]]
+id = "street.phone_box"
+class = "prop"
+name = "Phone box"
+
+[[kind]]
+id = "street.sign"
+class = "prop"
+name = "Road sign"
+
+[[kind]]
+id = "street.beacon"
+class = "prop"
+name = "Belisha beacon"
+
+[[kind]]
+id = "street.cycle_rack"
+class = "prop"
+name = "Cycle rack"
+
+[[kind]]
+id = "street.planter"
+class = "prop"
+name = "Planter"
+
+[[kind]]
+id = "street.bus_stop"
+class = "large"
+name = "Bus stop"
+
+[[kind]]
+id = "person.pedestrian"
+class = "prop"
+name = "Pedestrian"
+
+[[kind]]
+id = "person.cyclist"
+class = "prop"
+name = "Cyclist"
+
+[[kind]]
+id = "tree.broadleaf"
+class = "prop"
+drawn = true
+name = "Broadleaf tree"
+
+[[kind]]
+id = "tree.conifer"
+class = "prop"
+drawn = true
+name = "Conifer"
+
+[[kind]]
+id = "tree.poplar"
+class = "prop"
+drawn = true
+name = "Poplar"
+
+[[kind]]
+id = "tree.palm"
+class = "prop"
+drawn = true
+name = "Palm"
+
+[[kind]]
+id = "tree.cactus"
+class = "prop"
+drawn = true
+name = "Cactus"
+
+[[kind]]
+id = "tree.hawthorn"
+class = "prop"
+name = "Hawthorn"
+
+[[kind]]
+id = "cover.bushes"
+class = "prop"
+drawn = true
+name = "Bushes"
+
+[[kind]]
+id = "cover.pebbles"
+class = "prop"
+drawn = true
+name = "Pebbles and rocks"
+
+[[kind]]
+id = "cover.tufts"
+class = "prop"
+drawn = true
+name = "Grass tufts"
+
+[[kind]]
+id = "cover.ferns"
+class = "prop"
+drawn = true
+name = "Ferns"
+
+[[kind]]
+id = "cover.scrub"
+class = "prop"
+drawn = true
+name = "Scrub"
+
+[[kind]]
+id = "cover.flowers"
+class = "prop"
+drawn = true
+name = "Flowers"
+
+[[kind]]
+id = "garden.ornament"
+class = "prop"
+name = "Garden ornament"
+
+[[kind]]
+id = "garden.shed"
+class = "large"
+name = "Garden shed"
+
+[[kind]]
+id = "building"
+class = "large"
+name = "Whole building"
+
+[[kind]]
+id = "road"
+class = "large"
+name = "Road section"
+
+[[kind]]
+id = "bridge"
+class = "large"
+name = "Bridge"
+
+[[kind]]
+id = "terrain"
+class = "large"
+name = "Terrain"

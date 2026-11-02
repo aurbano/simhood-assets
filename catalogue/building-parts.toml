@@ -1,0 +1,259 @@
+# Building parts: Detached parts for the generated buildings: windows, doors, roof and wall extras.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "building-parts.window-sash"
+kind = "part.window.sash"
+name = "Sash window"
+size = { length = 0.9, width = 0.15, height = 1.4 }
+style = "Two-over-two sliding sash window with white frame and a deep sill, tall and narrow, for terraces and semis."
+priority = "high"
+status = "missing"
+plan = "commission"
+notes = "Research: no sash window matched; the casement windows stand in for now. Size: typical Victorian sash opening."
+
+[[slot]]
+id = "building-parts.window-casement"
+kind = "part.window.casement"
+name = "Casement window"
+size = { length = 1.2, width = 0.2, height = 1.5 }
+style = "Plain casement window with a frame and four to six panes, flat-backed so it sits in a wall opening."
+priority = "high"
+status = "have"
+variants = 4
+notes = "Three models ship (Kenney window-brown, Quaternius window and window_double). Research: a closed four-pane insert, not a sash."
+
+[[slot]]
+id = "building-parts.window-shopfront"
+kind = "part.window.shopfront"
+name = "Shopfront window"
+size = { length = 3.0, width = 0.2, height = 3.0 }
+style = "Large ground-floor shop window with a thin frame and a low stall riser, one per 3 m frontage."
+priority = "high"
+status = "missing"
+plan = "procedural"
+notes = "Research: Kenney's large-window pieces include a building volume and are not detached parts; draw it in the game's building generator or commission a flat-backed piece. Size: one 3 m shop frontage."
+
+[[slot]]
+id = "building-parts.window-curtain-wall"
+kind = "part.window.curtain_wall"
+name = "Curtain-wall panel"
+size = { length = 1.5, width = 0.25, height = 3.0 }
+style = "Office glazing panel, floor to ceiling, thin dark mullions and a spandrel strip."
+priority = "medium"
+status = "missing"
+plan = "commission"
+notes = "No standalone curtain-wall panel found in any sourced pack. Size: one 1.5 m module, one 3 m storey."
+
+[[slot]]
+id = "building-parts.window-strip"
+kind = "part.window.strip"
+name = "Factory strip window"
+size = { length = 4.0, width = 0.2, height = 1.4 }
+style = "Long horizontal band of glazing with thin frames, for factory and warehouse walls."
+priority = "medium"
+status = "missing"
+plan = "procedural"
+notes = "Research: Factory Kit's structure windows carry deep roof geometry; generate bands of about 1.4 m in the building generator."
+
+[[slot]]
+id = "building-parts.door-front"
+kind = "part.door.front"
+name = "Front door"
+size = { length = 1.05, width = 0.2, height = 2.1 }
+style = "Plain residential front door, timber colour with an optional small glazed panel; flat-backed, no step."
+priority = "high"
+status = "have"
+variants = 3
+notes = "Two Kenney doors ship. Research: add the step as a separate piece (see Doorstep)."
+
+[[slot]]
+id = "building-parts.door-step"
+kind = "part.door.step"
+name = "Doorstep"
+size = { length = 1.4, width = 0.8, height = 0.3 }
+style = "Shallow stone or concrete step in front of a front door."
+priority = "medium"
+status = "have"
+notes = "Quaternius staircase from Ultimate Textured Buildings; part.door.step is a kind added after the rubric."
+
+[[slot]]
+id = "building-parts.door-shop"
+kind = "part.door.shop"
+name = "Shop door"
+size = { length = 1.2, width = 0.2, height = 2.1 }
+style = "Timber-framed glazed door for a small traditional shop."
+priority = "high"
+status = "have"
+variants = 2
+notes = "Kenney door-brown-glass ships; not an automatic supermarket entrance."
+
+[[slot]]
+id = "building-parts.door-shutter"
+kind = "part.door.shutter"
+name = "Roller shutter"
+size = { length = 3.4, width = 0.1, height = 3.0 }
+style = "Segmented roller-shutter door in a flat panel, for industrial units and lock-ups."
+priority = "high"
+status = "have"
+notes = "Kenney Factory Kit door-wide-closed. A closed visual panel, not a working mechanism. The model is a flat plane with no depth."
+
+[[slot]]
+id = "building-parts.door-loading"
+kind = "part.door.loading"
+name = "Loading-bay door"
+size = { length = 4.5, width = 0.1, height = 4.0 }
+style = "Wide, tall segmented door for a warehouse loading bay; door only, no dock."
+priority = "high"
+status = "have"
+notes = "The shutter source scaled to 4 m high. A flat plane with no depth."
+
+[[slot]]
+id = "building-parts.door-barn"
+kind = "part.door.barn"
+name = "Barn door"
+size = { length = 3.0, width = 0.2, height = 3.0 }
+style = "Plain double timber or sheet-metal door leaves about 3 m high with visible hinges; no decorative framing."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: drawn by the game's building generator."
+
+[[slot]]
+id = "building-parts.roof-chimney"
+kind = "part.roof.chimney"
+name = "Chimney stack"
+size = { length = 0.6, width = 0.4, height = 1.6 }
+style = "Brick chimney stack with pots on top, to rise through a pitched roof."
+priority = "high"
+status = "stand-in"
+notes = "Poly Pizza chimney by Pixel (CC-BY) stands in. Sink the base through the roof; no flashing included."
+
+[[slot]]
+id = "building-parts.roof-dormer"
+kind = "part.roof.dormer"
+name = "Dormer window"
+size = { length = 2.0, width = 2.0, height = 1.8 }
+style = "Small gabled dormer with a window and cheeks, fitted into a pitched roof."
+priority = "low"
+status = "missing"
+plan = "kitbash"
+notes = "Research: combine a casement window with procedural cheeks and a small gabled roof, fitted to the host roof's pitch."
+
+[[slot]]
+id = "building-parts.roof-vent"
+kind = "part.roof.vent"
+name = "Roof vent"
+size = { length = 0.5, width = 0.5, height = 0.5 }
+style = "Weatherproof roof vent: a short shaft with a hood or cowl and flashing."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it procedurally; do not lay a wall grille flat and call it a roof vent."
+
+[[slot]]
+id = "building-parts.roof-hvac"
+kind = "part.roof.hvac"
+name = "Rooftop air-conditioning unit"
+size = { length = 1.3, width = 1.3, height = 0.6 }
+style = "Compact box unit with a fan grille, set on a roof curb; flat-roof shops and offices."
+priority = "medium"
+status = "have"
+notes = "Kenney Modular Buildings detail-ac-a. Not a large ducted plant."
+
+[[slot]]
+id = "building-parts.roof-dish"
+kind = "part.roof.dish"
+name = "Satellite dish"
+size = { length = 0.6, width = 0.55, height = 0.7 }
+style = "Small domestic dish on a short bracket."
+priority = "low"
+status = "stand-in"
+notes = "Quaternius antenna from Poly Pizza stands in. Mount by its support, not the bowl."
+
+[[slot]]
+id = "building-parts.solar-panel-flat"
+kind = "part.roof.solar"
+name = "Solar panel, roof-mounted"
+size = { length = 1.7, width = 1.0, height = 0.15 }
+style = "Low-profile dark solar panel with a pale frame, lying along a pitched roof."
+priority = "medium"
+status = "have"
+notes = "Kenney City Kit Industrial."
+
+[[slot]]
+id = "building-parts.solar-panel-raised"
+kind = "part.roof.solar"
+name = "Solar panel, raised"
+size = { length = 1.6, width = 1.0, height = 1.0 }
+style = "Solar panel tilted on a stand, for flat commercial and industrial roofs."
+priority = "low"
+status = "have"
+notes = "Kenney City Kit Industrial; portrait panel with a raised support."
+
+[[slot]]
+id = "building-parts.wall-drainpipe"
+kind = "part.wall.drainpipe"
+name = "Drainpipe"
+size = { length = 0.12, width = 0.12, height = 0.4 }
+style = "Vertical drainpipe kit: straight segments, a top connector and a bottom bend. Repeat to reach a 3 m storey; attach with brackets."
+priority = "medium"
+status = "have"
+variants = 4
+size_tolerance = 2.5
+notes = "Four Kenney Building Kit pieces ship at 0.4 times source scale; the segments differ on purpose, hence the wide size tolerance."
+
+[[slot]]
+id = "building-parts.wall-ac"
+kind = "part.wall.ac"
+name = "Wall air-conditioning unit"
+size = { length = 0.8, width = 0.35, height = 0.6 }
+style = "Box air-conditioning unit that hangs on a wall with a visible fan."
+priority = "low"
+status = "have"
+notes = "Kenney Modular Buildings detail-ac-b."
+
+[[slot]]
+id = "building-parts.wall-sign-bracket"
+kind = "part.wall.sign_bracket"
+name = "Sign bracket"
+size = { length = 0.8, width = 0.2, height = 0.45 }
+style = "Restrained iron bracket that holds a hanging shop sign, with separate wall and sign mounts."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: lettering stays on the existing procedural signage surface."
+
+[[slot]]
+id = "building-parts.wall-awning"
+kind = "part.wall.awning"
+name = "Shop awning"
+size = { length = 3.4, width = 0.9, height = 2.4 }
+style = "Shop canopy over a frontage, a coloured fabric top held by posts; the fabric is the tintable part."
+priority = "medium"
+status = "have"
+variants = 2
+tint = "canopy fabric"
+size_tolerance = 1.2
+notes = "Two Kenney City Kit Commercial awnings ship (2.4 m and 4.8 m wide). They have posts; a wall-supported canopy is generated where pavements are narrow."
+
+[[slot]]
+id = "building-parts.wall-balcony"
+kind = "part.wall.balcony"
+name = "Balcony"
+size = { length = 3.5, width = 1.8, height = 1.2 }
+style = "Timber balcony slab with a low guard that sits in front of a window or door."
+priority = "low"
+status = "have"
+notes = "Quaternius Ultimate Textured Buildings balcony; height includes the platform. Suits timber-balcony buildings only."
+
+[[slot]]
+id = "building-parts.whole-building"
+kind = "building"
+name = "Whole building"
+size = { length = 10.0, width = 8.0, height = 7.0 }
+style = "Houses, shops, offices and factories are built by the game from the parts on this page, so whole buildings are not wanted."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Procedural by design: the parts beat whole buildings. Please send parts, not houses. Size: a typical two-storey UK house."

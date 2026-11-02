@@ -1,0 +1,198 @@
+# Farms: Farm buildings, bales, crops, hedges, gates, walls and livestock.
+# Statuses: have, stand-in, missing, procedural (the game draws it in code). See STYLE.md and CONTRIBUTING.md.
+
+[[slot]]
+id = "farm.barn"
+kind = "farm.barn"
+name = "UK barn"
+size = { length = 18.0, width = 9.0, height = 7.0 }
+style = "Plain pitched agricultural shed in muted cladding with large doors; no gambrel roof or decorative white barn framing."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; recoloured American barns were rejected."
+
+[[slot]]
+id = "farm.hay-shed"
+kind = "farm.hay_shed"
+name = "Hay shed"
+size = { length = 12.0, width = 6.0, height = 5.0 }
+style = "Open-sided shed on posts under a simple roof, with an optional back wall."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: use a broad-face treatment, not an American roof profile."
+
+[[slot]]
+id = "farm.bale-round"
+kind = "farm.bale_round"
+name = "Round bale"
+size = { length = 1.5, width = 1.5, height = 1.2 }
+style = "Round bale on its side, low-sided cylinder with simple bindings or wrap."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code."
+
+[[slot]]
+id = "farm.bale-square"
+kind = "farm.bale_square"
+name = "Square bale"
+size = { length = 1.0, width = 0.6, height = 0.65 }
+style = "Clean rectangular straw bale with simple binding."
+priority = "medium"
+status = "stand-in"
+notes = "Innerscene hay bale stands in. Size: large square bale proportions; small bales are about 1.0 x 0.45 x 0.4."
+
+[[slot]]
+id = "farm.polytunnel"
+kind = "farm.polytunnel"
+name = "Polytunnel"
+size = { length = 30.0, width = 6.0, height = 3.0 }
+style = "Row of metal hoops under a translucent cover with end panels and a door."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: set the farm-scale proportions directly in code."
+
+[[slot]]
+id = "farm.trough-wood"
+kind = "farm.trough"
+name = "Wooden water trough"
+size = { length = 2.0, width = 1.0, height = 1.0 }
+style = "Rustic timber water trough for a field or paddock."
+priority = "low"
+status = "stand-in"
+notes = "Oliver Herklotz's trough (CC-BY) stands in as the rustic exception."
+
+[[slot]]
+id = "farm.trough-modern"
+kind = "farm.trough"
+name = "Modern cattle trough"
+size = { length = 2.4, width = 0.7, height = 0.6 }
+style = "Low galvanised rectangular trough with rounded ends."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; keep the wooden one as a rustic exception."
+
+[[slot]]
+id = "farm.wheat-stalk"
+kind = "farm.crop_wheat"
+name = "Wheat stalk"
+size = { length = 0.1, width = 0.06, height = 0.9 }
+style = "A single upright wheat stalk with an ear, to be planted many times over a field tile."
+priority = "medium"
+status = "have"
+variants = 2
+tint = "ears and stalk"
+notes = "Quaternius Wheat_4. Research: twelve stalks on a soil row make a tile of about 1,300 triangles."
+
+[[slot]]
+id = "farm.wheat-tile"
+kind = "farm.crop_wheat"
+name = "Wheat field tile"
+size = { length = 1.0, width = 0.94, height = 0.05 }
+style = "Ground tile for a wheat field: a double row of tilled soil that stalks are planted into."
+priority = "medium"
+status = "stand-in"
+notes = "Kenney soil row stands in for the finished tile (soil only, shared with the vegetable patch). Research: finished tile is a kitbash of stalks on this row."
+
+[[slot]]
+id = "farm.veg-plant"
+kind = "farm.crop_veg"
+name = "Vegetable plant"
+size = { length = 0.4, width = 0.4, height = 0.55 }
+style = "Leafy vegetable plant in two growth stages, planted in rows."
+priority = "medium"
+status = "have"
+variants = 3
+size_tolerance = 0.8
+notes = "Two Kenney Nature Kit plants ship (stage A and B)."
+
+[[slot]]
+id = "farm.veg-tile"
+kind = "farm.crop_veg"
+name = "Vegetable field tile"
+size = { length = 1.0, width = 0.94, height = 0.05 }
+style = "Ground tile for a vegetable plot: a double row of tilled soil."
+priority = "medium"
+status = "stand-in"
+notes = "Kenney soil row stands in for the finished tile; plants are added on top."
+
+[[slot]]
+id = "farm.hedge-section"
+kind = "farm.hedge"
+name = "Hedge section"
+size = { length = 1.5, width = 1.0, height = 1.2 }
+style = "Rounded clipped hedge or bush section in solid greens, for field boundaries."
+priority = "medium"
+status = "have"
+tint = "leaves"
+notes = "Quaternius bush2 from Simple Nature."
+
+[[slot]]
+id = "farm.hedge-continuous"
+kind = "farm.hedge"
+name = "Continuous rural hedge"
+size = { length = 6.0, width = 1.2, height = 1.5 }
+style = "Long hedgerow run that joins hedge sections with some undergrowth, under 1,500 triangles."
+priority = "low"
+status = "missing"
+tint = "leaves"
+plan = "kitbash"
+notes = "Research: join four Bush2 canopies with restrained undergrowth."
+
+[[slot]]
+id = "farm.gate-paddock"
+kind = "farm.gate"
+name = "Paddock gate"
+size = { length = 2.0, width = 0.15, height = 1.2 }
+style = "Small five-bar timber gate for a narrow paddock opening."
+priority = "medium"
+status = "stand-in"
+notes = "Innerscene farm fence gate stands in; 2 m wide."
+
+[[slot]]
+id = "farm.gate-wide"
+kind = "farm.gate"
+name = "Field-wide gate"
+size = { length = 3.6, width = 0.1, height = 1.3 }
+style = "Wide agricultural five-bar field gate, 3 to 4 m, in galvanised steel or timber."
+priority = "medium"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; keep the paddock gate for narrow openings."
+
+[[slot]]
+id = "farm.dry-stone-wall"
+kind = "farm.wall"
+name = "Dry-stone wall"
+size = { length = 3.0, width = 0.6, height = 1.2 }
+style = "Battered wall of irregular stone courses with coping stones, repeatable sections."
+priority = "low"
+status = "procedural"
+plan = "procedural"
+notes = "Research: draw it in code; avoid castle blocks."
+
+[[slot]]
+id = "farm.sheep"
+kind = "animal.sheep"
+name = "Sheep"
+size = { length = 1.1, width = 0.45, height = 0.8 }
+style = "Standing sheep with a woolly body and dark legs; flat colours."
+priority = "medium"
+status = "have"
+variants = 2
+notes = "Quaternius sheep, rotated upright (the staged export lay on its side). Wool colour is tintable by a later key."
+
+[[slot]]
+id = "farm.cow"
+kind = "animal.cow"
+name = "Cow"
+size = { length = 2.5, width = 0.7, height = 1.4 }
+style = "Standing cow with a patched coat; flat colours."
+priority = "medium"
+status = "have"
+variants = 2
+notes = "Quaternius cow."
