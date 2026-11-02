@@ -7,3 +7,4 @@ source = "https://quaternius.com/packs/zombieapocalypsekit.html"
 licence = "CC0-1.0"
 licence_evidence = "licences/quaternius-zombie-apocalypse-kit__licence-page.html"
 ai_generated = "unknown"
+changes = ["converted to one .glb", "scaled"]

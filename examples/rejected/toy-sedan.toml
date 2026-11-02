@@ -8,3 +8,4 @@ source = "https://kenney.nl/assets/car-kit"
 licence = "CC0-1.0"
 licence_evidence = "licences/kenney-car-kit__License.txt"
 ai_generated = "unknown"
+changes = ["converted to one .glb with its colour map embedded", "scaled"]

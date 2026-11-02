@@ -1,0 +1,25 @@
+{
+  "name": "simhood-assets-tools",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "license": "MIT OR Apache-2.0",
+  "scripts": {
+    "render": "tsx render/cli.ts",
+    "test:render": "tsx --test render/tests/*.test.ts",
+    "gltf-validate": "node gltf_validate.mjs"
+  },
+  "dependencies": {
+    "gltf-validator": "2.0.0-dev.3.10",
+    "playwright": "1.63.0",
+    "pngjs": "7.0.0",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/pngjs": "6.0.5",
+    "@types/three": "0.187.0",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3"
+  }
+}

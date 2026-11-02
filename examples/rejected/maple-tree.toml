@@ -7,3 +7,4 @@ source = "https://quaternius.com/packs/ultimatestylizednature.html"
 licence = "CC0-1.0"
 licence_evidence = "licences/quaternius-ultimate-stylized-nature__licence-page.html"
 ai_generated = "unknown"
+changes = ["converted to one .glb", "normal and ORM maps dropped to fit 4 MiB", "scaled"]
