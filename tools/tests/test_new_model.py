@@ -136,3 +136,10 @@ def test_models_that_cannot_be_measured_or_are_not_in_a_pack_are_refused(tmp_pat
     assert "not inside a pack" in capsys.readouterr().err
     assert new_model.main([str(tmp_path / "missing.glb"), "--slot", "vehicles.panel-van"]) == 1
     assert new_model.main(["--slot"]) == 2
+
+
+def test_a_square_footprint_far_off_says_forward_is_not_the_cause(tmp_path):
+    repo, path = repo_with(tmp_path, box_glb(2.0, 2.0, 2.0))
+    _, text = lines_of(path, "vehicles.panel-van")
+    assert "footprint short side" in text and "FAIL" in text
+    assert "nearly square, so `forward` is not the cause" in text

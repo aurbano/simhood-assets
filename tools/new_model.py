@@ -203,7 +203,10 @@ def run(model: Path, slot_id: str, repo: Path | None = None, out=print) -> int:
         state = "ok" if data.triangles <= budget else "OVER BUDGET"
         out(f"triangles: {data.triangles} of {budget} {state}")
     if any(level == "fail" for level, _ in levels.values()):
-        out("a size is far off: try the other `forward` values (+x, -x, +z, -z) and the other size key before anything else")
+        if abs(ex - ez) > 0.1 * max(ex, ez):
+            out("a size is far off: if length and width look swapped, try the other `forward` values (+x, -x, +z, -z)")
+        else:
+            out("a size is far off and the footprint is nearly square, so `forward` is not the cause: the model's proportions do not fit the slot")
     if not has_toml:
         out("")
         out(f"{pack.name} has no pack.toml; " + pack_template(pack))
