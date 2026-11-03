@@ -139,9 +139,69 @@ Two things are refused:
 - **Meshy on its free plan**: its free output is licensed CC BY 4.0 to Meshy and needs a credit to Meshy, which does not suit us.
 - **Hunyuan3D**: its licence forbids using or showing its outputs in the EU, the UK and South Korea.
 
+## Getting a model into shape
+
+These steps take you from a Blender file or a download to a `.glb` and a manifest that the checks accept. The tools sit in `tools/`; run everything from the repository root.
+
+### 1. Exporting from Blender
+
+File > Export > glTF 2.0, then:
+
+- Format: **glTF Binary (.glb)**.
+- Include: only the model (tick "Selected Objects" and select just the model, not lights, cameras or helpers).
+- Transform: **+Y Up**.
+- Mesh: **Apply Modifiers**. Apply object transforms (Object > Apply > All Transforms) before exporting, so the model is not left with a scale or rotation on the object.
+- Textures: PNG, at most 1024 px a side and at most two of them. Leave animations, skinning, cameras and lights out unless the kind is `person.*` or `animal.*`.
+- Stand the model on the ground (lowest point at y = 0) with its middle at the origin. The game stands it on the ground itself, so this only matters to you when you measure it.
+
+### 2. Converting a download (FBX, OBJ, glTF)
+
+Downloads usually come as FBX, OBJ or `.gltf` with loose files. `tools/convert.sh` turns them into one `.glb` each, with every object's transform baked into the vertices:
+
+```
+tools/convert.sh path/to/Model.fbx path/to/more-models/ --out /tmp/converted
+```
+
+Give it files or folders (folders are scanned, and mirrored under `--out`). It needs [Godot 4.7](https://godotengine.org/) (`GODOT=<binary>` if it is not on your PATH as `godot`; on macOS it finds `/Applications/Godot.app`) and, for OBJ files only, Node with network access for the first run: OBJ goes through `npx obj2gltf@3.2.0`.
+
+After each model it prints one line:
+
+```
+triangles=1530 size=4.086 x 1.676 x 1.745 (x, y, z, model units) origin_at_bottom_centre=no (...) textures=none
+```
+
+The triangles and size are what the validator will measure. Read the textures part: it warns when a texture is over 1024 px or there are more than two. A model that fails prints `FAIL <path>: <reason>`, the run carries on, and the exit status is non-zero. The origin does not have to be at the bottom centre; the game stands the model up itself.
+
+### 3. Recovering colours from a `.blend`
+
+FBX and OBJ exports often lose the colours of a Blender model, so it converts white. If you have the original `.blend`, put the colours back:
+
+```
+uv run tools/blend_colours.py --blend Model.blend --list
+uv run tools/blend_colours.py --blend Model.blend --glb /tmp/converted/Model.glb --out /tmp/converted/Model.coloured.glb
+```
+
+`--list` prints the materials the `.blend` holds. The patch gives each material of the `.glb` the colour, or the PNG texture, of the `.blend` material with the same name (a trailing `.001` and `_` against `.` are ignored). It lists materials it could not match; pair those by hand with `--map <glb material>=<blend material>`. Textures are looked up by file name next to the `.blend` and in any `--textures <folder>`. Only PNG is embedded: a JPEG texture is refused, so convert it to PNG first. Without `--out` the `.glb` is patched in place; convert again to start over. Blender 3.0 and later save compressed `.blend` files, which need Python 3.14 or newer (`uv run --python 3.14 ...`); the tool says so if yours is one.
+
+### 4. Starting the manifest
+
+Put the `.glb` in your pack (`packs/<your-pack>/<folder>/`) and run:
+
+```
+uv run tools/new_model.py packs/my-pack/vehicles/panel-van.glb --slot vehicles.panel-van
+```
+
+It measures the model the way the validator does, looks up the slot and writes `panel-van.toml` beside it (it never overwrites one): `id`, `slot`, `kind`, the size key the slot's kind wants (`length` for vehicles, `height` for the rest, taken from the slot's size) and a suggested `forward`. Lines for what only you can say (`title`, `licence`, `author`, `source`, `licence_evidence`, `ai_generated`, `contributors`) are left commented: fill them in, or leave out those `pack.toml` already gives. It then prints the scaled size against the slot's and the triangles against the budget. If a size is far off, change the size key or `forward` before anything else. The `forward` sign is a guess: the review picture is a three-quarter view from the front right, so a vehicle's front should face you on the right; flip the sign if it does not.
+
+If the pack has no `pack.toml`, the tool prints what to create. Last, set the status of the slot you fill in `catalogue/<area>.toml` (`missing` to `stand-in` or `have`), and run the checks below.
+
 ## Running the checks yourself
 
-You need [uv](https://docs.astral.sh/uv/) for the validator and [pnpm](https://pnpm.io/) for the pictures.
+You need [uv](https://docs.astral.sh/uv/) and [pnpm](https://pnpm.io/). The validator runs the Khronos glTF Validator, which comes from pnpm, so install the tools' packages once before anything else (the pictures need them too):
+
+```
+pnpm --dir tools install
+```
 
 **Whole repository** (strict mode), and the same with a report file:
 

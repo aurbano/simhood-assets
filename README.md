@@ -17,7 +17,7 @@ To help, read [CONTRIBUTING.md](CONTRIBUTING.md) and [STYLE.md](STYLE.md), claim
 |`packs/`|Every model the game uses, one folder per pack, each model with a small `.toml` manifest saying what it is, who made it and under what licence|
 |`catalogue/`|The wanted list: kinds, size and triangle budgets, and one entry per slot|
 |`examples/`|Pictures and files used by the style guide, including models we turned down and why|
-|`tools/`|The checks (validator), the picture renderer and the credits and board-data scripts|
+|`tools/`|The checks (validator), the picture renderer, the credits and board-data scripts, and the contributor tools: `convert.sh` (FBX, OBJ or glTF to a tidy `.glb`), `blend_colours.py` (give a converted model back the colours its `.blend` has) and `new_model.py` (start a model's manifest). See "Getting a model into shape" in [CONTRIBUTING.md](CONTRIBUTING.md)|
 
 ## How a model gets into the game
 
@@ -28,7 +28,7 @@ To help, read [CONTRIBUTING.md](CONTRIBUTING.md) and [STYLE.md](STYLE.md), claim
 
 ## Licences
 
-- Tooling (everything in `tools/`): MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`).
+- Tooling (everything in `tools/`): MIT OR Apache-2.0 (`LICENSE-MIT`, `LICENSE-APACHE`), except the test model in `tools/tests/data/`, which keeps its own CC0-1.0 licence (see the README there).
 - The catalogue, documents and style guide: CC0-1.0 (`LICENSE-CC0`).
 - Every model keeps its own licence, stated in its manifest: CC0-1.0, CC-BY-3.0 or CC-BY-4.0.
 

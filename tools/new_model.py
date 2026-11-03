@@ -108,9 +108,9 @@ def manifest_text(
     lines += [
         "",
         f"# Suggested: the model's longest footprint extent runs along {axis} ({max(ex, ez):.3g} against {min(ex, ez):.3g} along {other}, in model units).",
-        "# The sign is a guess: `+` and `-` look the same to a measurement. Check which way the front points in",
-        "# the review picture (`pnpm --dir tools render`, see CONTRIBUTING.md) and flip to the opposite sign",
-        f'# ({"-x" if forward == "+x" else "-z"}) if the front is at the wrong end. A footprint close to square, or a model with no front, needs no care.',
+        "# The sign is a guess: a measurement cannot tell `+` from `-`. The review picture (`pnpm --dir tools render`,",
+        "# see CONTRIBUTING.md) is a three-quarter view from the front right: a vehicle's front (windscreen, bonnet)",
+        f'# should face you on the right. If it faces away, flip the sign to {"-x" if forward == "+x" else "-z"}. A near-square footprint or a model with no front needs no care.',
         f'forward = "{forward}"',
         "",
     ]
@@ -211,7 +211,7 @@ def run(model: Path, slot_id: str, repo: Path | None = None, out=print) -> int:
         out("")
         out(f"{pack.name} has no pack.toml; " + pack_template(pack))
     out("")
-    out("next: fill in the commented lines in the manifest, then run `uv run tools/validate.py`")
+    out(f"next: fill in the commented lines in the manifest, set {slot.id}'s status in {slot.file} (missing to stand-in or have), then run `uv run tools/validate.py`")
     return 0
 
 
