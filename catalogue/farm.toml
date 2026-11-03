@@ -41,8 +41,8 @@ name = "Square bale"
 size = { length = 1.0, width = 0.6, height = 0.65 }
 style = "Clean rectangular straw bale with simple binding."
 priority = "medium"
-status = "stand-in"
-notes = "Innerscene hay bale stands in. Size: large square bale proportions; small bales are about 1.0 x 0.45 x 0.4."
+status = "have"
+notes = "Innerscene hay bale; reads clearly (status review 2026-11-03). Size: large square bale proportions; small bales are about 1.0 x 0.45 x 0.4."
 
 [[slot]]
 id = "farm.polytunnel"
@@ -127,9 +127,9 @@ name = "Hedge section"
 size = { length = 1.5, width = 1.0, height = 1.2 }
 style = "Rounded clipped hedge or bush section in solid greens, for field boundaries."
 priority = "medium"
-status = "have"
+status = "stand-in"
 tint = "leaves"
-notes = "Quaternius bush2 from Simple Nature."
+notes = "Quaternius bush2 from Simple Nature stands in: a round bush on a short trunk, not a clipped hedge (status review 2026-11-03). A boxy hedge section that tiles end to end is wanted."
 
 [[slot]]
 id = "farm.hedge-continuous"

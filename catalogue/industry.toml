@@ -86,8 +86,8 @@ name = "Crate"
 size = { length = 0.6, width = 0.6, height = 0.6 }
 style = "Braced timber shipping crate."
 priority = "medium"
-status = "stand-in"
-notes = "Quaternius crate from Poly Pizza stands in."
+status = "have"
+notes = "Quaternius crate from Poly Pizza; fits the family (status review 2026-11-03)."
 
 [[slot]]
 id = "industry.container"
@@ -117,8 +117,8 @@ name = "Forklift"
 size = { length = 3.0, width = 1.2, height = 2.1 }
 style = "Warehouse forklift with a mast and forks, orange and black."
 priority = "medium"
-status = "stand-in"
-notes = "KolosStudios forklift from Poly Pizza (CC-BY) stands in; forward direction was inferred from the forks. Size: 2.5 t forklift."
+status = "have"
+notes = "KolosStudios forklift from Poly Pizza (CC-BY); fits the family (status review 2026-11-03). Forward direction was inferred from the forks. Size: 2.5 t forklift."
 
 [[slot]]
 id = "industry.skip"
@@ -137,9 +137,9 @@ name = "Wheelie bin"
 size = { length = 0.75, width = 0.6, height = 1.1 }
 style = "Two-wheeled domestic or commercial bin with a hinged lid; body tintable."
 priority = "medium"
-status = "stand-in"
+status = "have"
 tint = "body paint"
-notes = "Quaternius trashcan from Poly Pizza stands in. Size: 240 litre wheelie bin."
+notes = "Quaternius trashcan from Poly Pizza; reads as a UK wheelie bin (status review 2026-11-03). Size: 240 litre wheelie bin."
 
 [[slot]]
 id = "industry.chain-link-fence"

@@ -18,9 +18,9 @@ name = "Tower crane"
 size = { length = 23.0, width = 13.5, height = 30.0 }
 style = "Yellow lattice tower crane standing on the ground, with a jib and counter-jib."
 priority = "medium"
-status = "stand-in"
+status = "have"
 max_triangles = 2500
-notes = "Majadroid's crane (2,234 triangles) stands in; the research counted it over the prop budget and flagged it. Anker's 14,302-triangle crane was excluded. The cap keeps a replacement near today's count."
+notes = "Majadroid's crane (2,234 triangles), within the large-piece budget; the research's flag counted it against the 1,500-triangle prop budget. Reads well as a lattice crane (status review 2026-11-03). Anker's 14,302-triangle crane was excluded. The cap keeps a replacement near today's count."
 
 [[slot]]
 id = "construction.site-cabin"

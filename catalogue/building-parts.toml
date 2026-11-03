@@ -168,8 +168,8 @@ name = "Satellite dish"
 size = { length = 0.6, width = 0.55, height = 0.7 }
 style = "Small domestic dish on a short bracket."
 priority = "low"
-status = "stand-in"
-notes = "Quaternius antenna from Poly Pizza stands in. Mount by its support, not the bowl."
+status = "have"
+notes = "Quaternius antenna from Poly Pizza; fits the family (status review 2026-11-03). Mount by its support, not the bowl."
 
 [[slot]]
 id = "building-parts.solar-panel-flat"

@@ -58,8 +58,8 @@ name = "Bus stop flag"
 size = { length = 0.4, width = 0.1, height = 2.5 }
 style = "Coloured stop sign on a thin pole; generic transit look, not an exact UK operator sign."
 priority = "medium"
-status = "stand-in"
-notes = "dook's bus stop sign (CC-BY) stands in."
+status = "have"
+notes = "dook's bus stop sign (CC-BY); plain enough to keep (status review 2026-11-03)."
 
 [[slot]]
 id = "streets.bench"
@@ -89,8 +89,8 @@ name = "Bollard"
 size = { length = 0.4, width = 0.4, height = 0.9 }
 style = "Plain dark pavement bollard with a reflective amber band."
 priority = "medium"
-status = "stand-in"
-notes = "J-Toastie's bollard (CC-BY) stands in. For pedestrian protection, not a traffic-island marker."
+status = "have"
+notes = "J-Toastie's bollard (CC-BY); fits the family (status review 2026-11-03). For pedestrian protection, not a traffic-island marker."
 
 [[slot]]
 id = "streets.litter-bin-private"
@@ -163,8 +163,8 @@ name = "Cycle rack"
 size = { length = 2.4, width = 1.7, height = 0.9 }
 style = "Multi-rail metal rack for several cycles at once, for plazas and stations."
 priority = "low"
-status = "stand-in"
-notes = "J-Toastie's bike rack (CC-BY) stands in. Not a covered shelter."
+status = "have"
+notes = "J-Toastie's bike rack (CC-BY); fits the family (status review 2026-11-03). Not a covered shelter."
 
 [[slot]]
 id = "streets.sheffield-hoop"

@@ -142,8 +142,8 @@ name = "Farm trailer"
 size = { length = 4.0, width = 2.1, height = 1.4 }
 style = "Single-axle tipping farm trailer with timber sides, drawn towed by a tractor."
 priority = "medium"
-status = "stand-in"
-notes = "A towed attachment, never a freight vehicle that moves on its own; it needs a hitch point. Innerscene model stands in. Size: 8 t farm trailer reference."
+status = "have"
+notes = "A towed attachment, never a freight vehicle that moves on its own; it needs a hitch point. Innerscene model, fits the family (status review 2026-11-03). Size: 8 t farm trailer reference."
 
 [[slot]]
 id = "vehicles.combine"
@@ -163,9 +163,9 @@ name = "Midibus"
 size = { length = 8.5, width = 2.5, height = 3.0 }
 style = "Short two-axle single-deck bus for local routes, big windows, a door at the front."
 priority = "medium"
-status = "stand-in"
+status = "have"
 tint = "body paint"
-notes = "Quevedo's bus is vivid lime and needs its body recoloured before it goes live. Size: 8.5 m midibus reference."
+notes = "Quevedo's bus; the shape fits, but the body is vivid lime and needs a tint key before it goes live (status review 2026-11-03). Size: 8.5 m midibus reference."
 
 [[slot]]
 id = "vehicles.bus-full"
@@ -186,8 +186,8 @@ name = "Compact coach"
 size = { length = 9.2, width = 2.5, height = 3.2 }
 style = "Short coach with a raised cabin and dark glass, for the gateway shuttle."
 priority = "medium"
-status = "stand-in"
-notes = "Rgsdev's blue coach stands in. Size: 9 m midi-coach reference."
+status = "have"
+notes = "Rgsdev's blue coach; fits the family (status review 2026-11-03). Size: 9 m midi-coach reference."
 
 [[slot]]
 id = "vehicles.coach-full"
