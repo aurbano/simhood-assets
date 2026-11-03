@@ -1,0 +1,7 @@
+; Engine configuration file for the model converter (tools/convert.sh). Nothing to open in the editor:
+; the work is done by convert.gd, run headless.
+config_version=5
+
+[application]
+config/name="simhood-assets-convert"
+config/features=PackedStringArray("4.7")
